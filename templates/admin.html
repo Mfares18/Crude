@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAARSElEQVR4nO3da2xUZ37H8f+MPWN8CzcTrgHC3cCGkAJhs6TcEiA1UTAEMMH2vttKq7ZCaiv1zaqVNlJeVdsXW3WlvqhKI4GzJIEFh+DQJQksYXthVw3gLDbBbLLQkoDDxTb2jMd9QadrwIZ5Zs45z+37eQk+4zPPOf/f+T9njp8RAQAAAAAAAAAAAAAAAAAAAAAANonp3gGEo2rmuoGgX/PrCy2cL47hgFoqjAIvFAFhHw6YBUws9lwRCmbj4BjG5mLPFaFgDg6EAXwo+uEQBnox+Br4XPCPQiBEi8GOCEWvjjAIHwMcIoo+OIRBOBjUEFD44SEIgsVgBojCjw5BEAwGsUAUvX6EQf4YuDxR+OYhCNQxYIoofPMRBLljoHJE4duHIHg0BugRKHz7EQTDi+veAZNR/G7gOA6PZBwCJ4y76AbuxWAMQuH7gyC4i0H4P74Wf8eO81eG+7/pe+ZMjHJfokYIEADeFn7WwwJgOK4Fg89B4PVNQN+LP1/5hIbJfD4PvEw+nw/4/QotZroBu3n1ZkUo/vsFeTV3JQx8CgFv3qgIxT+UsNp528PAlxDw4k1S+MMLez5PEJjN+ZuAFL9eHTvOX7H5pqHr54/TAeD6wbMJIWAmZwPA5YNmK5u7AVfPJ+fmN64eqLDoKkib7w24dF/AqQ6A4rcH3YAZnAkAlw6KTwgBvZwIAFcOhq9s7QZcOO+sDwAXDgLuIgSiZ3UA2D74eBAhEC1rA8DmQcfDEQLRsTIAbB1s5I4QiIZ1AWDjICM/Nt4ctO38tCoAbBtcBMO2ILDpPLXmiSabBjVMX7UfWX7/v42btf5Uvq9nU2GJ2PUEoQ1PDFrRAVD8D/dV+5HlQwWDi2wKLBvOW+MDwIZBNIUvQUAIBMf4AIA6QgC5MjoATE9Pk/nQDdgSAiafx8YGgMmDZhPXg4AQKIyRAWDqYNmMENDPxPPauAAwcZBcQQjoZ9r5bVwAIFyEAAYzKgBMS0fYx4YQMOk8NyYATBoU17ncBYgQAiqMCABTBsMnfDqgnwnnvREBAH3Kf3ixVvc+hMWGENBNewCYkIK+IwT00X3+aw0A3W8efiAEhqe9A4AZXO4CROxbUyAq2v5emat/fqK4cdf1gyffDft36GTqmgI61g/Q0gFQ/NDJ1E5AR10wBcADXJ8O4PciDwCu/nZwPQToAu6iA4C3TA2BKEUaAFz97eJ6FyBiZghEWSeRBQDFbydCQI+o6oUpACBmhkAUIgkArv5286ELEDEvBKKoGzoA5IQQcFPoAcDVH8hf2PVDB4Cc0QW4J9QA4OrvHkIgemHWER0AMAyTQiAsoQUAV393+dIFiJgTAmHVEx0A4DECAHgEU7qAMIQSALT/7vNpGiBiRgiEUVd0AECOTAiBoAUeAFz9gfAEXV90AIAC17qAQAOAqz98oDsEgqwzOgDkzbcbgYPpDoGgEACAxwILANp/+EZnFxBUvdEBAAWwfSpAAAAFsjkEAgkA2n8/uf4VYqYLou7oAIAA2NoFEACAxwgA5IX2/0E2dgEFBwDzf+D3og6BQuuPDgDKuPq7gwAAAmbTVKCgAKD99w9X/9xEGQKF1CEdAHJG8auxoRMgAJATit9NBAAeieLPn+ldAAGAh6L43RbLd0NuAOrxVfuR5VH8Hgo/WNP3zJkY9u/4+kKLcj3TAeABFH/wTJ0KFOveAehHwfuLDsBj42atP0XxR8fELoAOwCPjZq0/pXsfYJa8AoAbgOaj2M3UseP8lbBuCFbNXDegeiOQDsBCFDeCwj0Ay1D89jPpXgABAHiMAAA0MKULIAAATUwIAQIA8BgBAGikuwtQDgCeAQDMpVqfdACAZjq7AAIA8BgBAHiMAAAMoGsaQAAAHiMAAI8RAIDH+HNgi/zTj3/QvXHDilS+2+/Z15L8s7/629Ig92koiVV/kkiu/fOEyjaZ65cGen60qiesfbJBmGsFDIcOwBKjRlYMrFvzbN7FLyKycf23b2dufW7kEmAXO9M3vvX3X/6z7v3wDQFgiU01K1PJpNJF9QGVlZXJP1r3XO/AQH9BQYLwRP1pAAFgie2bX+wL4nUaG+ur+7qung3itWA/AsACM6ZPzix5uro/iNdau3bttDEVA61BvBbsRwBYYHvtC4Fc/UVE4vF4bPuWmrJMuvdmUK+JYEU5DSAADBeLxWTrphcCnbN/97uNC3tvX/l1kK8JOxEAhntu2bfST0x+PBPka86fP79q/uzxl4J8TdiJADBc3eYXQ7lj3/Da1snp3pu/C+O1YQ8CwGClpSUDGzc8H0oA7NixY37mztVfhfHasAcBYLCadd9JV5SXhrICU1VVVenqFYtupDIDgU4vEIyobgQSAAbbXhvMZ//DaWyon93S3tMR5u+A2QgAQ00cX5X5w+cWp1W2OX369H+r/PzGjRtnHbiUuKC2Z3CJcgCofvkg8rN105pUPJ77UKdSqUxjY+OhTCaT85QhmUwWjV3ySllnT+ZOXjsJ46jWJx2AoVQ/+//ggw8unj13rvMXp36tdM9gZ0PjgrfPdbWp7R1cQQAYaNHC2f3zZk9TevS3qampNVk6dtaBwyfKVbZ79tlnJ53omnRZbQ8RhShuBBIABqpT/MOf3t7e/v3797eVVEx46uD7JxLpdL9SF7B4fd2EtmupTrW9hAsIAMMkioulduMqpfb/8OHDF27dut2fLH98wfXOG7Hjn/xK6bjW19cv2PNp12dqewoXEACGWbtyaWrsmJFKV/C9e/e2Jsqq5sTixSUiIu82fzRCZfupU6c+dmnUklt85ZN/CADDbFd89Le7uzt16NCh9pKKCYuy//Zey8lEXyqlVM8vvVo/83jHnS9VtoH9CACDjB5Vqbzs18GDB9u7u+9IsmzcvOy/3bh5O/bh8f8sUnmdLVu2zN3Xljmvsg3sl1cA8CxAOGprVqWSCbV1WpuamlqT5eOqY/Gi5OB/39/8sdI0oKKiIhmfv6GoKzXAcmGWyqcu6QAMsm2z2sIfN2/e7D18+PDnJRUTnrr//w4fPVl8p7dXaRqw/bWG6p991sWTgR4hAAwx88kpmT9YNE/ps/8DBw609falixJlVXPv/7/bXT2xox/+m1I7sWbNmmkfXB3FOgEeIQAMUad49RfJtv+Pz4/F4kMW+v7mj0tUXi8ej8dmrnp1zO9upm+r7gvsRAAYIBaLyauvrFWae3d2dt5paWm5WFIx/oH2P6vl2C+Lu7t7lKYBDQ2NC/ee4ZkAX+QdANwIDM6K5YvSUyapLfv1zjvv/CbdLyXJ0qrZw/1MT09v7MjPTylNA6qrq8f+V3zuNZVtoF++9UgHYIBtteqLfu7du7e1pOLxBRKLPfTjPtVpgIjIqld2Tj19pfeq6nawDwGgWWlpycDLit/3d/Xq1e5jx45dGvzwz3COfvTviVu3upSmAXV1dfP3nutjGuABAkCzl9evSJeXqS37tW/fvs8GpKg8UTpmxqN+tq8vJYePfqL0nWJVVVWlt6auTLNcmPsIAM225bHsV1NTU2uyYvxCkVhOx+/d5o+UpwG12+vnvN/Wc1F1O9iloADgRmBhJo6vyjz/7aeVlv26fPny7ePHj39RUv7gwz/D+ejE6eLOb24qXc1rampmHvpt8nOVbaBHIXVIB6DRttq1Sst+iYi89dZbrbGi5GOJ0tHTc90mlU7Ley0nlbqAZDJZNHbZpvLrLBemzfQ9cyaG/TvUHjxHoLZuUn/4Z9euXUt37dq1VERC/26/nfUNC/b99Z7z31tSmXO3AbsU3AEwDcjP4qfm9M+dNdXom2zLli2beLJ7MsuFGazQ+mMKoEk+N/90eGZD3cTzLBcWuSjafxECQItEcbFs3rjSij+7ra+vX7DnTDfPBDiKANDgxdXLUmNGqy37pcsTTzzx2Bejlt7ODIgV++uCqK7+IgEFAPcB1OTz6K9OL726c+bHLBdmnCDqjg4gYqNHVQ68uFpt2S/dtmzZMvft9gxfHuIgAiBimzeuVl72S7fy8vJE8fyXWC4sAlG2/yIBBgDTgNxsq1X/7N8E23c2VB9o7WrXvR+4K6h6owOI0KwZUzLPLJqrtOyXKVavXj3t6Nejfqt7PxAsu3pRy21X/MovEZGOjo4bM2bM+IeBgeBuwsfj8dilS5e+P2XKlEqVbWat2jrmy5v/cmvKY8U5b4fcRd3+iwQcAF9faIlVzVzHx0VDiMdjslVx2S8RkTfffPNsvGjE6NHTnv9LEQlsmvXueyd7/vR725QCqaGhceHe7//k7F98Z+SSoPYDd6kUf5DTbaYAEVmx/On05InjlB/93b1796cllRMXS4DFLyLy0/3/mnz0T91r3rx5Y88UV7NcmEMCDwBuBg4tn8/+T506dbmtra2zpHLS4qD3p/V8R9GnZ9uUA2nVK69N+4/Lvf8T9P74TNfVX4QOIBJlpSOUl/0SuXv1Lx4xcmpRoqwqjP366YFjZarb1NXVVb/V2vebMPbHRzrm/YOFEgB0Afd6ecOKVFnpCKV7I319ff1NTU2tI0K4+me9ffDnyYFMv9J+jR07tvTW1JXpvv4BKz/NsFkYdUUHEIF82v/m5uYL1zu/SQ31tV9BufpVZ+zO+RPK+7a5rmHO++09HSHskld0X/1FCIDQTZpQlVmxXG3ZLxGR3bt3n0mWVc2LxRPKbbqK+Jn9ytvU1NTMYrmwwphQ/CIhBgDTgLu2bXpBedmva9eu9TQ3N7ePqJz0TEi79f/S546kU3e6lG4GJhKJ+LhltSwXlqd8ij+seuJBoJD93U/2lrzxxhufdF1vO6KyXawoUZYsG/fAl34GLtUj3/zNgttP/uiLf+zqyyhNB6auH1P+x0sfe+C7CVIf/jj1+uuvn/zhh998ovJ6T44uHqny8yhc6FdpHgwyW8eO81d074NPTLr6i3APAIiMKfP+wUKfAvB4MHxXSOGHfS+NDgAIkYlX/cEiCQA+EYCPCi3+KOqGDgAIgelX/qzIAoAuAMhdVPUSaQdACMAHNrT+WUwBgADZ0vpnRf4kIB8LwkVBFX7UXTIdAFAg2676g2n5WwC6ANgujKLXcY9M2x8DEQKwUVhXe103yPlrQCAHNrf5D6P1HgAfC8IGYRe/zjrQ3gEwFYCporjq674Iag8AwDSutvtDMeJjQN0pCGRFWfwmnPfGdABMBaBT1Fd9E4pfxKAAECEEEC1drb4pxS9iWAAAYfNpfp8L4wKALgBBM6noTbr6ixgYACKEAApnUtFnmVb8IoYGgAghAHUmFn2WicUvYnAAiBACeDSTiz7L1OIXMTwAgCwbCt1GxgcAXYA/XCxyk6/+IhYEgAgh4DIXiz7L9OIXsSQARAgBl7hc9Fk2FL+IRQEgQgiYxodCzoctxS9iWQCIEAJhoJCDY1Pxi0Tw9eBhIQRgGtuKX8SQPwfOh42DDXfZej5aGwAi9g463GLzeWh1AIjYPfiwn+3nn/UBIGL/QYCdXDjvnAgAETcOBuzhyvnmTACIuHNQYDaXzjNn3sj9+JgQQXOp8LOc6gAGc/FgQR9XzydnA0DE3YOGaLl8HjkdACJuHzyEz/Xzx+k3dz/uCyBXrhd+lvMdwGC+HFQUxqfzxKsAEPHr4EKdb+eHV2/2fkwJkOVb4Wd51wEM5utBx718Pg+8feP3oxvwj8+Fn+V1BzAYJ4NfON53MQhDoBtwF4V/LwbjIQgCd1D4Q2MK8BCcNG7gOA6PgckR3YB9KPxHY4AUEQTmo/Bzx0DliSAwD4WvjgErEEGgH4WfPwYuQIRBdCj6YDCIISAIwkPhB4vBDBFBEBwKPxwMakQIA3UUffgYYA0Ig+FR9NFisA3gcyBQ8Hox+IbxIQwoenNwICxgcyhQ7Gbj4FjKxFCg2O3DAXNUGAFBgQMAAAAAAAAAAAAAAAAAAACAEf4X3dKZjg2T37MAAAAASUVORK5CYII=">
+  <title>CrudeAI — Admin Dashboard</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap');
+  :root {
+    --dark: #0a0e1a; --darker: #060911; --card-bg: #0f1528;
+    --card-border: #1e2d50; --orange: #f47c20; --orange-glow: rgba(244,124,32,0.25);
+    --text: #c8d8f0; --muted: #5a6a8a; --success: #2ed573; --danger: #ff4757;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--dark); color:var(--text); font-family:'Exo 2',sans-serif; display:flex; min-height:100vh; }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 240px; min-height: 100vh; background: var(--darker);
+    border-right: 1px solid var(--card-border); display:flex; flex-direction:column;
+    position: fixed; left:0; top:0; z-index:100; transition:transform 0.3s;
+  }
+  .sidebar-logo {
+    padding: 1.5rem; border-bottom: 1px solid var(--card-border);
+    font-family:'Rajdhani',sans-serif; font-size:1.3rem; font-weight:700; color:#fff;
+  }
+  .sidebar-logo span { color: var(--orange); }
+  .sidebar-nav { padding: 1rem 0; flex:1; }
+  .nav-item {
+    display:flex; align-items:center; gap:0.75rem;
+    padding: 0.7rem 1.5rem; color:var(--muted);
+    cursor:pointer; transition:all 0.2s; font-size:0.9rem;
+    border-left: 3px solid transparent;
+  }
+  .nav-item:hover { color: var(--text); background: rgba(244,124,32,0.05); }
+  .nav-item.active { color: var(--orange); background: rgba(244,124,32,0.08); border-left-color: var(--orange); }
+  .nav-item i { width: 18px; }
+  .sidebar-footer { padding:1.5rem; border-top: 1px solid var(--card-border); }
+  .back-btn {
+    display:flex; align-items:center; gap:0.5rem;
+    color:var(--muted); text-decoration:none; font-size:0.85rem;
+    transition:color 0.2s;
+  }
+  .back-btn:hover { color:var(--orange); }
+
+  /* MAIN */
+  .main-content { margin-left:240px; flex:1; padding: 0; }
+  .topbar {
+    background: var(--darker); border-bottom: 1px solid var(--card-border);
+    padding: 1rem 2rem; display:flex; align-items:center; justify-content:space-between;
+    position:sticky; top:0; z-index:50;
+  }
+  .topbar-title { font-family:'Rajdhani',sans-serif; font-size:1.3rem; font-weight:600; color:#fff; }
+  .topbar-time { font-size:0.8rem; color:var(--muted); }
+  .content-area { padding: 2rem; }
+
+  /* CARDS */
+  .card-box {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;
+  }
+  .card-title {
+    font-family:'Rajdhani',sans-serif; font-size:0.8rem; font-weight:600;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem;
+  }
+
+  /* KPI */
+  .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:1.5rem; }
+  .kpi-card {
+    background:var(--card-bg); border:1px solid var(--card-border);
+    border-radius:8px; padding:1.25rem;
+  }
+  .kpi-label { font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; }
+  .kpi-value { font-family:'Rajdhani',sans-serif; font-size:2rem; font-weight:700; color:var(--orange); }
+  .kpi-sub { font-size:0.78rem; color:var(--muted); }
+
+  /* FORM */
+  .form-group { margin-bottom:1rem; }
+  label { font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:0.35rem; display:block; }
+  input, select {
+    width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--card-border);
+    border-radius:4px; color:var(--text); padding:0.5rem 0.75rem; font-size:0.9rem;
+    outline:none; transition:border-color 0.2s; font-family:'Exo 2',sans-serif;
+  }
+  input:focus, select:focus { border-color:var(--orange); }
+  select option { background:var(--darker); }
+
+  /* BUTTONS */
+  .btn-orange {
+    background:var(--orange); color:#fff; border:none;
+    padding:0.6rem 1.5rem; border-radius:4px;
+    font-family:'Rajdhani',sans-serif; font-size:1rem; font-weight:600;
+    letter-spacing:0.05em; cursor:pointer; transition:all 0.2s;
+    box-shadow: 0 0 16px var(--orange-glow);
+  }
+  .btn-orange:hover { background:#ff9000; transform:translateY(-1px); }
+  .btn-outline {
+    background:transparent; color:var(--text); border:1px solid var(--card-border);
+    padding:0.6rem 1.5rem; border-radius:4px;
+    font-family:'Rajdhani',sans-serif; font-size:1rem; font-weight:600;
+    cursor:pointer; transition:all 0.2s;
+  }
+  .btn-outline:hover { border-color:var(--orange); color:var(--orange); }
+  .btn-sm-orange {
+    background:rgba(244,124,32,0.15); color:var(--orange); border:1px solid rgba(244,124,32,0.3);
+    padding:0.3rem 0.8rem; border-radius:3px; font-size:0.8rem; cursor:pointer;
+    font-family:'Rajdhani',sans-serif; font-weight:600; letter-spacing:0.05em;
+    transition:all 0.2s;
+  }
+  .btn-sm-orange:hover { background:var(--orange); color:#fff; }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+  .data-table th {
+    background:rgba(244,124,32,0.08); padding:0.65rem 1rem;
+    font-family:'Rajdhani',sans-serif; font-size:0.75rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--orange); border-bottom:1px solid var(--card-border);
+    text-align:left; white-space:nowrap;
+  }
+  .data-table td {
+    padding:0.6rem 1rem; border-bottom:1px solid rgba(30,45,80,0.4);
+    color:var(--text); white-space:nowrap;
+  }
+  .data-table tr:hover td { background:rgba(244,124,32,0.03); }
+
+  /* BADGES */
+  .badge-r2 { display:inline-block; padding:0.2rem 0.5rem; border-radius:3px; font-size:0.78rem; font-weight:600; }
+  .r2-excellent { background:rgba(46,213,115,0.15); color:#2ed573; }
+  .r2-good { background:rgba(244,124,32,0.15); color:var(--orange); }
+  .r2-poor { background:rgba(255,71,87,0.15); color:var(--danger); }
+
+  /* PROGRESS */
+  .progress-bar-custom {
+    height:6px; background:rgba(255,255,255,0.05); border-radius:3px; overflow:hidden;
+  }
+  .progress-fill { height:100%; background:linear-gradient(90deg,var(--orange),#ff9000); border-radius:3px; transition:width 1s ease; }
+
+  /* TABS */
+  .tab-nav { display:flex; gap:0; border-bottom:1px solid var(--card-border); margin-bottom:1.5rem; }
+  .tab-btn {
+    background:none; border:none; padding:0.75rem 1.25rem;
+    color:var(--muted); cursor:pointer; font-family:'Rajdhani',sans-serif;
+    font-size:0.9rem; font-weight:600; letter-spacing:0.05em;
+    border-bottom:2px solid transparent; transition:all 0.2s;
+  }
+  .tab-btn.active { color:var(--orange); border-bottom-color:var(--orange); }
+  .tab-content { display:none; }
+  .tab-content.active { display:block; }
+
+  /* LOADING */
+  .spinner { display:inline-block; width:20px; height:20px; border:2px solid rgba(244,124,32,0.3); border-top-color:var(--orange); border-radius:50%; animation:spin 0.8s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  /* TOAST */
+  .toast-container { position:fixed; top:1rem; right:1rem; z-index:9999; }
+  .toast-item {
+    background:var(--card-bg); border:1px solid var(--card-border);
+    border-radius:6px; padding:0.75rem 1rem; margin-bottom:0.5rem;
+    display:flex; align-items:center; gap:0.75rem; min-width:280px;
+    animation:slideIn 0.3s ease;
+    font-size:0.9rem;
+  }
+  .toast-success { border-left:3px solid var(--success); }
+  .toast-error { border-left:3px solid var(--danger); }
+  .toast-info { border-left:3px solid #4da6ff; }
+  @keyframes slideIn { from { transform:translateX(100%); opacity:0; } to { transform:translateX(0); opacity:1; } }
+
+  /* CHART containers */
+  .chart-container { position:relative; height:280px; }
+
+  /* SECTION visibility */
+  .section-panel { display:none; }
+  .section-panel.active { display:block; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width:6px; height:6px; }
+  ::-webkit-scrollbar-track { background:transparent; }
+  ::-webkit-scrollbar-thumb { background:var(--card-border); border-radius:3px; }
+
+  /* Table wrapper */
+  .table-wrapper { overflow-x:auto; max-height:400px; overflow-y:auto; }
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    Crude<span>AI</span> <span style="font-size:0.65rem;color:var(--muted);font-family:Exo 2">ADMIN</span>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-item active" onclick="showSection('overview')" id="nav-overview"><i class="fas fa-th-large"></i>Overview</div>
+    <div class="nav-item" onclick="showSection('train')" id="nav-train"><i class="fas fa-brain"></i>Train Models</div>
+    <div class="nav-item" onclick="showSection('compare')" id="nav-compare"><i class="fas fa-balance-scale"></i>Model Comparison</div>
+    <div class="nav-item" onclick="showSection('data')" id="nav-data"><i class="fas fa-database"></i>Dataset</div>
+    <div class="nav-item" onclick="showSection('adddata')" id="nav-adddata"><i class="fas fa-plus-circle"></i>Add Data</div>
+    <div class="nav-item" onclick="showSection('models')" id="nav-models"><i class="fas fa-save"></i>Saved Models</div>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main-content">
+  <div class="topbar">
+    <div class="topbar-title" id="pageTitle">Overview</div>
+    <div class="topbar-time" id="topbarTime"></div>
+  </div>
+  <div class="content-area">
+
+    <!-- OVERVIEW -->
+    <div class="section-panel active" id="panel-overview">
+      <div class="kpi-grid" id="kpiGrid">
+        <div class="kpi-card"><div class="kpi-label">Dataset Rows</div><div class="kpi-value" id="kpiRows">—</div><div class="kpi-sub">Training samples</div></div>
+        <div class="kpi-card"><div class="kpi-label">Features</div><div class="kpi-value">9</div><div class="kpi-sub">Input variables</div></div>
+        <div class="kpi-card"><div class="kpi-label">Saved Models</div><div class="kpi-value" id="kpiModels">—</div><div class="kpi-sub">Ready to use</div></div>
+        <div class="kpi-card"><div class="kpi-label">Best R²</div><div class="kpi-value" id="kpiBest">—</div><div class="kpi-sub">Training history</div></div>
+      </div>
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="card-box">
+            <div class="card-title">Asphaltene Distribution</div>
+            <div class="chart-container"><canvas id="histChart"></canvas></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card-box">
+            <div class="card-title">Feature Correlations with Asphaltenes</div>
+            <div class="chart-container"><canvas id="corrChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRAIN -->
+    <div class="section-panel" id="panel-train">
+      <div class="row g-3">
+        <div class="col-lg-4">
+          <div class="card-box">
+            <div class="card-title">Training Configuration</div>
+            <div class="form-group">
+              <label>Model</label>
+              <select id="modelSelect">
+                <option value="RandomForest">Random Forest</option>
+                <option value="GradientBoosting">Gradient Boosting</option>
+                <option value="ExtraTrees">Extra Trees</option>
+                <option value="SVR">SVR (Support Vector)</option>
+                <option value="KNN">K-Nearest Neighbors</option>
+                <option value="Ridge">Ridge Regression</option>
+                <option value="XGBoost">XGBoost (if installed)</option>
+                <option value="LightGBM">LightGBM (if installed)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Test Split</label>
+              <select id="testSplit">
+                <option value="0.1">10% test</option>
+                <option value="0.2" selected>20% test</option>
+                <option value="0.3">30% test</option>
+              </select>
+            </div>
+            <button class="btn-orange w-100 mb-2" onclick="trainModel()">
+              <i class="fas fa-play me-2"></i>Train Model
+            </button>
+            <button class="btn-outline w-100" onclick="trainAll()">
+              <i class="fas fa-layer-group me-2"></i>Train All Models
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card-box" id="trainResults" style="min-height:300px;">
+            <div class="card-title">Training Results</div>
+            <div id="trainResultsContent" style="color:var(--muted); padding:2rem 0; text-align:center;">
+              <i class="fas fa-robot" style="font-size:2rem;opacity:0.3;margin-bottom:0.5rem;display:block;"></i>
+              Select a model and click Train to start
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card-box">
+            <div class="card-title">Actual vs Predicted</div>
+            <div class="chart-container"><canvas id="predChart"></canvas></div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card-box">
+            <div class="card-title">Feature Importance</div>
+            <div class="chart-container"><canvas id="featChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="section-panel" id="panel-compare">
+      <div class="card-box">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="card-title" style="margin:0">Training History & Comparison</div>
+          <button class="btn-sm-orange" onclick="loadHistory()"><i class="fas fa-sync me-1"></i>Refresh</button>
+        </div>
+        <div class="table-wrapper">
+          <table class="data-table" id="historyTable">
+            <thead>
+              <tr>
+                <th>Model</th><th>Date</th><th>R²</th><th>RMSE</th><th>MAE</th><th>CV R² (mean)</th><th>CV Std</th><th>Train Samples</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody">
+              <tr><td colspan="8" style="text-align:center;color:var(--muted);padding:2rem;">No training history yet. Go to Train Models.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-lg-4">
+          <div class="card-box">
+            <div class="card-title">R² Score <span style="font-size:0.7rem;color:var(--muted)">(higher = better)</span></div>
+            <div class="chart-container"><canvas id="compareR2Chart"></canvas></div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card-box">
+            <div class="card-title">RMSE <span style="font-size:0.7rem;color:var(--muted)">(lower = better)</span></div>
+            <div class="chart-container"><canvas id="compareRmseChart"></canvas></div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card-box">
+            <div class="card-title">MAE <span style="font-size:0.7rem;color:var(--muted)">(lower = better)</span></div>
+            <div class="chart-container"><canvas id="compareMaeChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATASET -->
+    <div class="section-panel" id="panel-data">
+      <div class="row g-3 mb-3" id="statsGrid"></div>
+      <div class="card-box">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="card-title" style="margin:0">Dataset Preview</div>
+          <span id="rowCount" style="font-size:0.85rem;color:var(--muted);">Loading...</span>
+        </div>
+        <div class="table-wrapper">
+          <table class="data-table" id="datasetTable">
+            <thead><tr id="datasetHeader"></tr></thead>
+            <tbody id="datasetBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD DATA -->
+    <div class="section-panel" id="panel-adddata">
+      <div class="card-box" style="max-width:800px;">
+        <div class="card-title">Add New Crude Oil Sample</div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Petroleum Designation</label>
+              <input type="text" id="add_name" placeholder="e.g. Arabian Light (2025)">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Density (g/cm³)</label>
+              <input type="number" id="add_density" step="0.001" placeholder="0.870">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>API Gravity (°API)</label>
+              <input type="number" id="add_api" step="0.1" placeholder="31.5">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>T50% TBP (°C)</label>
+              <input type="number" id="add_t50" placeholder="320">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Kin. Viscosity (mm²/s)</label>
+              <input type="number" id="add_visc" step="0.1" placeholder="12.5">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Flash Point (°C)</label>
+              <input type="number" id="add_flash" placeholder="25">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Sulphur (wt.%)</label>
+              <input type="number" id="add_sulphur" step="0.01" placeholder="1.8">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Saturates (wt.%)</label>
+              <input type="number" id="add_sat" step="0.1" placeholder="48.0">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Aromatics (wt.%)</label>
+              <input type="number" id="add_aro" step="0.1" placeholder="28.5">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Resins (wt.%)</label>
+              <input type="number" id="add_res" step="0.1" placeholder="8.0">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Asphaltenes (wt.%) ← TARGET</label>
+              <input type="number" id="add_asph" step="0.01" placeholder="3.5" style="border-color:var(--orange)">
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 d-flex gap-2">
+          <button class="btn-orange" onclick="addDataPoint()"><i class="fas fa-plus me-2"></i>Add Sample</button>
+          <button class="btn-outline" onclick="clearAddForm()"><i class="fas fa-times me-2"></i>Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAVED MODELS -->
+    <div class="section-panel" id="panel-models">
+      <div class="row g-3">
+        <div class="col-lg-5">
+          <div class="card-box">
+            <div class="card-title">Upload Model</div>
+            <div style="border:2px dashed var(--card-border); border-radius:6px; padding:2rem; text-align:center; cursor:pointer;" id="uploadZone" onclick="document.getElementById('modelFile').click()">
+              <i class="fas fa-cloud-upload-alt" style="font-size:2rem;color:var(--muted);margin-bottom:0.5rem;display:block;"></i>
+              <div style="color:var(--muted);font-size:0.9rem;">Click or drag a .pkl model file</div>
+            </div>
+            <input type="file" id="modelFile" accept=".pkl" style="display:none" onchange="uploadModel()">
+            <div id="uploadStatus" class="mt-2" style="font-size:0.85rem;color:var(--muted);"></div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="card-box">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="card-title" style="margin:0">Available Models</div>
+              <button class="btn-sm-orange" onclick="loadModelsList()"><i class="fas fa-sync me-1"></i>Refresh</button>
+            </div>
+            <div id="modelsList" style="color:var(--muted);text-align:center;padding:2rem;">
+              <i class="fas fa-box-open" style="font-size:2rem;opacity:0.3;margin-bottom:0.5rem;display:block;"></i>
+              Loading...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- content-area -->
+</main>
+
+<script>
+const FEAT_SHORT = ['Density','API','T50%','Viscosity','Flash Pt','Sulphur','Saturates','Aromatics','Resins'];
+const FEAT_FULL = [
+  'Density, at 15°C, g/cm3','API','T50% (TBP),◦C',
+  'Kin. Viscosityat 40◦C,mm2/s','Flash point, °C','Sulphur, wt.%',
+  'Saturate, wt.%','Aromatics, wt.%','Resins, wt.%'
+];
+
+// ─── Time ──────────────────────────────────────────────────────────────────
+function updateTime() {
+  document.getElementById('topbarTime').textContent = new Date().toLocaleString();
+}
+setInterval(updateTime, 1000); updateTime();
+
+// ─── Toast ─────────────────────────────────────────────────────────────────
+function toast(msg, type='info') {
+  const c = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  const icons = {success:'check-circle',error:'exclamation-circle',info:'info-circle'};
+  const colors = {success:'#2ed573',error:'#ff4757',info:'#4da6ff'};
+  t.className = `toast-item toast-${type}`;
+  t.innerHTML = `<i class="fas fa-${icons[type]}" style="color:${colors[type]}"></i><span>${msg}</span>`;
+  c.appendChild(t);
+  setTimeout(() => t.remove(), 4000);
+}
+
+// ─── Section Nav ───────────────────────────────────────────────────────────
+function showSection(name, skipHistory=false) {
+  document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById(`panel-${name}`).classList.add('active');
+  document.getElementById(`nav-${name}`).classList.add('active');
+  const titles = {overview:'Overview',train:'Train Models',compare:'Model Comparison',data:'Dataset',adddata:'Add Data',models:'Saved Models'};
+  document.getElementById('pageTitle').textContent = titles[name];
+  if (name === 'overview') loadOverview();
+  if (name === 'data') loadDataset();
+  if (name === 'compare' && !skipHistory) loadHistory();
+  if (name === 'models') loadModelsList();
+}
+
+// ─── Overview ──────────────────────────────────────────────────────────────
+async function loadOverview() {
+  try {
+    const [info, corr, mods, hist] = await Promise.all([
+      fetch('/api/dataset/info').then(r=>r.json()),
+      fetch('/api/correlations').then(r=>r.json()),
+      fetch('/api/models/list').then(r=>r.json()),
+      fetch('/api/models/history').then(r=>r.json()),
+    ]);
+
+    document.getElementById('kpiRows').textContent = info.rows;
+    document.getElementById('kpiModels').textContent = mods.models.length;
+
+    const best = hist.history.length ? Math.max(...hist.history.map(h=>h.r2||0)).toFixed(4) : '—';
+    document.getElementById('kpiBest').textContent = best;
+
+    // Histogram (fake distribution from stats)
+    const mean = info.stats['Asphaltenes, wt.%'].mean;
+    const std = info.stats['Asphaltenes, wt.%'].std;
+    const bins = [0,1,2,3,4,5,6,8,10,15,21];
+    // Approximate counts using normal dist
+    const counts = bins.slice(0,-1).map((b,i) => {
+      const z1 = (b - mean) / std, z2 = (bins[i+1] - mean) / std;
+      return Math.round(info.rows * 0.4 * (erf(z2/1.41) - erf(z1/1.41)));
+    });
+
+    renderHistChart(bins.slice(0,-1).map((b,i)=>`${b}–${bins[i+1]}`), counts);
+    renderCorrChart(corr);
+  } catch(e) { console.error(e); }
+}
+
+function erf(x) {
+  const a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;
+  const sign = x<0?-1:1; x=Math.abs(x);
+  const t=1/(1+p*x);
+  const y=1-(((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-x*x);
+  return sign*y;
+}
+
+function renderHistChart(labels, data) {
+  const ctx = document.getElementById('histChart');
+  if (ctx._chart) ctx._chart.destroy();
+  ctx._chart = new Chart(ctx, {
+    type:'bar',
+    data: {
+      labels,
+      datasets:[{
+        label:'Crude Samples',
+        data,
+        backgroundColor:'rgba(244,124,32,0.6)',
+        borderColor:'#f47c20',
+        borderWidth:1,
+      }]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a',font:{size:10}}},
+        y:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'}},
+      }
+    }
+  });
+}
+
+function renderCorrChart(corr) {
+  const ctx = document.getElementById('corrChart');
+  if (ctx._chart) ctx._chart.destroy();
+  const vals = FEAT_FULL.map(f => corr[f] || 0);
+  const colors = vals.map(v => v >= 0 ? 'rgba(244,124,32,0.7)' : 'rgba(255,71,87,0.7)');
+  ctx._chart = new Chart(ctx, {
+    type:'bar',
+    data:{labels:FEAT_SHORT, datasets:[{label:'Correlation',data:vals,backgroundColor:colors,borderWidth:0}]},
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{min:-1,max:1,grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'}},
+        y:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a',font:{size:10}}},
+      }
+    }
+  });
+}
+
+// ─── Train ─────────────────────────────────────────────────────────────────
+let predChartInst=null, featChartInst=null;
+
+async function trainModel() {
+  const model = document.getElementById('modelSelect').value;
+  const test_size = document.getElementById('testSplit').value;
+  const btn = event.target; btn.disabled = true;
+  btn.innerHTML = '<span class="spinner me-2"></span>Training...';
+  document.getElementById('trainResultsContent').innerHTML = '<div style="text-align:center;padding:2rem;color:var(--muted)"><span class="spinner" style="width:32px;height:32px;border-width:3px"></span><br><br>Training in progress...</div>';
+  try {
+    const res = await fetch('/api/train', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({model, test_size: parseFloat(test_size)})
+    });
+    const d = await res.json();
+    if (d.error) throw new Error(d.error);
+    renderTrainResults(d);
+    toast(`${model} trained successfully! R²=${d.r2}`, 'success');
+  } catch(e) {
+    toast(e.message, 'error');
+    document.getElementById('trainResultsContent').innerHTML = `<div style="color:var(--danger);padding:1rem">${e.message}</div>`;
+  } finally {
+    btn.disabled = false; btn.innerHTML = '<i class="fas fa-play me-2"></i>Train Model';
+  }
+}
+
+async function trainAll() {
+  const btn = event.currentTarget || event.target; btn.disabled = true;
+  btn.innerHTML = '<span class="spinner me-2"></span>Training All...';
+  toast('Training all models — this may take a minute...', 'info');
+  try {
+    const test_size = parseFloat(document.getElementById('testSplit').value);
+    const res = await fetch('/api/train/all', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({test_size})});
+    const d = await res.json();
+    // Switch section first, then render (avoids DOM-not-visible race)
+    showSection('compare', true);   // true = skip auto loadHistory
+    renderAllResults(d.results);
+    toast('All models trained! Showing comparison.', 'success');
+  } catch(e) { toast(e.message,'error'); }
+  finally { btn.disabled=false; btn.innerHTML='<i class="fas fa-layer-group me-2"></i>Train All Models'; }
+}
+
+function renderTrainResults(d) {
+  const r2Class = d.r2 >= 0.9 ? 'r2-excellent' : d.r2 >= 0.75 ? 'r2-good' : 'r2-poor';
+  document.getElementById('trainResultsContent').innerHTML = `
+    <div class="row g-3">
+      <div class="col-6"><div style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.2rem">R² Score</div><div style="font-family:Rajdhani;font-size:2rem;font-weight:700;color:var(--orange)">${d.r2}</div></div>
+      <div class="col-6"><div style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.2rem">RMSE</div><div style="font-family:Rajdhani;font-size:2rem;font-weight:700;color:#4da6ff">${d.rmse}</div></div>
+      <div class="col-6"><div style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.2rem">MAE</div><div style="font-family:Rajdhani;font-size:2rem;font-weight:700;color:#2ed573">${d.mae}</div></div>
+      <div class="col-6"><div style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.2rem">CV R² (5-fold)</div><div style="font-family:Rajdhani;font-size:2rem;font-weight:700;color:#ffa502">${d.cv_r2_mean} ± ${d.cv_r2_std}</div></div>
+      <div class="col-12"><div style="font-size:0.75rem;color:var(--muted);margin-bottom:0.3rem">R² Performance</div>
+        <div class="progress-bar-custom"><div class="progress-fill" style="width:${d.r2*100}%"></div></div>
+      </div>
+    </div>
+    <div class="mt-2" style="font-size:0.8rem;color:var(--muted)">Model saved as <b style="color:var(--orange)">${d.model}.pkl</b> · ${d.train_samples} train / ${d.test_samples} test samples</div>
+  `;
+
+  // Actual vs Predicted chart
+  if (d.y_test && d.y_pred) {
+    const ctx = document.getElementById('predChart');
+    if (predChartInst) predChartInst.destroy();
+    predChartInst = new Chart(ctx, {
+      type:'scatter',
+      data:{datasets:[
+        {label:'Predictions',data:d.y_test.map((v,i)=>({x:v,y:d.y_pred[i]})),backgroundColor:'rgba(244,124,32,0.6)',pointRadius:5},
+        {label:'Perfect',data:[{x:0,y:0},{x:25,y:25}],type:'line',borderColor:'rgba(255,255,255,0.2)',borderDash:[5,5],pointRadius:0}
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#c8d8f0'}}},
+        scales:{x:{title:{display:true,text:'Actual',color:'#5a6a8a'},grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'}},
+                y:{title:{display:true,text:'Predicted',color:'#5a6a8a'},grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'}}}}
+    });
+  }
+
+  // Feature importance chart
+  if (d.feature_importance) {
+    const keys = Object.keys(d.feature_importance);
+    const vals = Object.values(d.feature_importance);
+    const shortKeys = keys.map(k => FEAT_FULL.indexOf(k) >= 0 ? FEAT_SHORT[FEAT_FULL.indexOf(k)] : k);
+    const ctx2 = document.getElementById('featChart');
+    if (featChartInst) featChartInst.destroy();
+    featChartInst = new Chart(ctx2, {
+      type:'bar', data:{labels:shortKeys,datasets:[{label:'Importance',data:vals,backgroundColor:'rgba(244,124,32,0.7)',borderWidth:0}]},
+      options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+        scales:{x:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'}},y:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a',font:{size:11}}}}}
+    });
+  }
+}
+
+function renderAllResults(results) {
+  if (!results || !results.length) return;
+  const valid = results.filter(r => r.r2 != null);
+
+  // ── History table ──────────────────────────────────────────────────────────
+  const tbody = document.getElementById('historyBody');
+  tbody.innerHTML = results.map(h => {
+    if (h.error) return `<tr><td><b>${h.model}</b></td><td colspan="7" style="color:#ff4757">${h.error}</td></tr>`;
+    const r2c = h.r2>=0.9?'r2-excellent':h.r2>=0.75?'r2-good':'r2-poor';
+    const ts = h.timestamp ? new Date(h.timestamp).toLocaleTimeString() : 'just now';
+    return `<tr>
+      <td><b>${h.model}</b></td>
+      <td>${ts}</td>
+      <td><span class="badge-r2 ${r2c}">${h.r2}</span></td>
+      <td>${h.rmse}</td><td>${h.mae}</td>
+      <td>${h.cv_r2_mean ?? h.cv_r2 ?? '—'}</td>
+      <td>${h.cv_r2_std ?? '—'}</td>
+      <td>${h.train_samples ?? '—'}</td>
+    </tr>`;
+  }).join('');
+
+  // ── R² comparison chart ────────────────────────────────────────────────────
+  const ctx1 = document.getElementById('compareR2Chart');
+  if (r2ChartInst) r2ChartInst.destroy();
+  r2ChartInst = new Chart(ctx1, {
+    type:'bar',
+    data:{
+      labels: valid.map(u=>u.model),
+      datasets:[{
+        label:'R²',
+        data: valid.map(u=>u.r2),
+        backgroundColor: valid.map(u=>u.r2>=0.9?'rgba(46,213,115,0.7)':u.r2>=0.75?'rgba(244,124,32,0.7)':'rgba(255,71,87,0.7)'),
+        borderWidth:0
+      }]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' R²: '+ctx.parsed.y}}},
+      scales:{x:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#8a9abf'}},
+              y:{min:0,max:1,grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#8a9abf'}}}}
+  });
+
+  // ── RMSE comparison chart ──────────────────────────────────────────────────
+  const ctx2 = document.getElementById('compareRmseChart');
+  if (rmseChartInst) rmseChartInst.destroy();
+  rmseChartInst = new Chart(ctx2, {
+    type:'bar',
+    data:{
+      labels: valid.map(u=>u.model),
+      datasets:[{label:'RMSE',data:valid.map(u=>u.rmse),backgroundColor:'rgba(77,166,255,0.7)',borderWidth:0}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' RMSE: '+ctx.parsed.y}}},
+      scales:{x:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#8a9abf'}},
+              y:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#8a9abf'}}}}
+  });
+
+  // ── MAE comparison chart (new) ─────────────────────────────────────────────
+  const maeContainer = document.getElementById('compareMaeChart');
+  if (maeContainer) {
+    if (maeChartInst) maeChartInst.destroy();
+    maeChartInst = new Chart(maeContainer, {
+      type:'bar',
+      data:{
+        labels: valid.map(u=>u.model),
+        datasets:[{label:'MAE',data:valid.map(u=>u.mae),backgroundColor:'rgba(255,165,2,0.7)',borderWidth:0}]
+      },
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false}},
+        scales:{x:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#8a9abf'}},
+                y:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#8a9abf'}}}}
+    });
+  }
+}
+
+// ─── History / Compare ─────────────────────────────────────────────────────
+let r2ChartInst=null, rmseChartInst=null, maeChartInst=null;
+async function loadHistory() {
+  const res = await fetch('/api/models/history');
+  const d = await res.json();
+  const hist = d.history;
+  const tbody = document.getElementById('historyBody');
+  if (!hist.length) { tbody.innerHTML='<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:2rem;">No history yet.</td></tr>'; return; }
+  tbody.innerHTML = hist.sort((a,b)=>(b.r2||0)-(a.r2||0)).map(h => {
+    const r2c = h.r2>=0.9?'r2-excellent':h.r2>=0.75?'r2-good':'r2-poor';
+    return `<tr>
+      <td><b>${h.model}</b></td>
+      <td>${new Date(h.timestamp).toLocaleString()}</td>
+      <td><span class="badge-r2 ${r2c}">${h.r2}</span></td>
+      <td>${h.rmse}</td><td>${h.mae}</td>
+      <td>${h.cv_r2_mean ?? h.cv_r2 ?? '—'}</td><td>${h.cv_r2_std ?? '—'}</td>
+      <td>${h.train_samples}</td>
+    </tr>`;
+  }).join('');
+
+  // Latest unique models
+  const seen = {};
+  hist.forEach(h => { if (!seen[h.model] || h.r2 > seen[h.model].r2) seen[h.model] = h; });
+  const uniq = Object.values(seen).sort((a,b)=>b.r2-a.r2);
+
+  const ctx1 = document.getElementById('compareR2Chart');
+  if (r2ChartInst) r2ChartInst.destroy();
+  r2ChartInst = new Chart(ctx1, {
+    type:'bar',
+    data:{labels:uniq.map(u=>u.model),datasets:[{label:'R²',data:uniq.map(u=>u.r2),backgroundColor:uniq.map(u=>u.r2>=0.9?'rgba(46,213,115,0.7)':u.r2>=0.75?'rgba(244,124,32,0.7)':'rgba(255,71,87,0.7)'),borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'}},y:{min:0,max:1,grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'}}}}
+  });
+
+  const ctx2 = document.getElementById('compareRmseChart');
+  if (rmseChartInst) rmseChartInst.destroy();
+  rmseChartInst = new Chart(ctx2, {
+    type:'bar',
+    data:{labels:uniq.map(u=>u.model),datasets:[{label:'RMSE',data:uniq.map(u=>u.rmse),backgroundColor:'rgba(77,166,255,0.7)',borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'}},y:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'}}}}
+  });
+}
+
+// ─── Dataset ────────────────────────────────────────────────────────────────
+async function loadDataset() {
+  const res = await fetch('/api/dataset/info');
+  const d = await res.json();
+  document.getElementById('rowCount').textContent = `${d.rows} samples`;
+
+  // Stats cards
+  const statCols = ['Density, at 15°C, g/cm3','API','Resins, wt.%','Asphaltenes, wt.%'];
+  const statShort = ['Density','API','Resins','Asphaltenes'];
+  const statColors = ['#f47c20','#4da6ff','#ffa502','#2ed573'];
+  document.getElementById('statsGrid').innerHTML = statCols.map((c,i)=>`
+    <div class="col-6 col-md-3">
+      <div class="kpi-card">
+        <div class="kpi-label">${statShort[i]}</div>
+        <div class="kpi-value" style="color:${statColors[i]}">${d.stats[c].mean.toFixed(2)}</div>
+        <div class="kpi-sub">mean · std ${d.stats[c].std.toFixed(2)}</div>
+      </div>
+    </div>`).join('');
+
+  // Table
+  const cols = ['Petroleum designation',...d.features,'Asphaltenes, wt.%'];
+  const shortCols = ['Name','Density','API','T50%','Viscosity','Flash Pt','Sulphur','Saturates','Aromatics','Resins','Asphaltenes'];
+  document.getElementById('datasetHeader').innerHTML = shortCols.map(c=>`<th>${c}</th>`).join('');
+  document.getElementById('datasetBody').innerHTML = d.sample.map(row=>`
+    <tr>${cols.map(c=>`<td>${row[c]!==undefined&&row[c]!==''?row[c]:'—'}</td>`).join('')}</tr>`).join('');
+}
+
+// ─── Add Data ────────────────────────────────────────────────────────────────
+async function addDataPoint() {
+  const fields = {
+    'Density, at 15°C, g/cm3': parseFloat(document.getElementById('add_density').value)||0,
+    'API': parseFloat(document.getElementById('add_api').value)||0,
+    'T50% (TBP),◦C': parseFloat(document.getElementById('add_t50').value)||0,
+    'Kin. Viscosityat 40◦C,mm2/s': parseFloat(document.getElementById('add_visc').value)||0,
+    'Flash point, °C': parseFloat(document.getElementById('add_flash').value)||0,
+    'Sulphur, wt.%': parseFloat(document.getElementById('add_sulphur').value)||0,
+    'Saturate, wt.%': parseFloat(document.getElementById('add_sat').value)||0,
+    'Aromatics, wt.%': parseFloat(document.getElementById('add_aro').value)||0,
+    'Resins, wt.%': parseFloat(document.getElementById('add_res').value)||0,
+    'Asphaltenes, wt.%': parseFloat(document.getElementById('add_asph').value)||0,
+    name: document.getElementById('add_name').value || 'Unknown',
+  };
+  try {
+    const res = await fetch('/api/dataset/add', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(fields)});
+    const d = await res.json();
+    if (d.success) { toast(`Sample added! Dataset now has ${d.rows} rows.`, 'success'); clearAddForm(); }
+  } catch(e) { toast(e.message,'error'); }
+}
+
+function clearAddForm() {
+  ['add_name','add_density','add_api','add_t50','add_visc','add_flash','add_sulphur','add_sat','add_aro','add_res','add_asph'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+}
+
+// ─── Models ─────────────────────────────────────────────────────────────────
+async function loadModelsList() {
+  const res = await fetch('/api/models/list');
+  const d = await res.json();
+  const el = document.getElementById('modelsList');
+  if (!d.models.length) {
+    el.innerHTML = '<div style="color:var(--muted);text-align:center;padding:2rem;"><i class="fas fa-box-open" style="font-size:2rem;opacity:0.3;margin-bottom:0.5rem;display:block;"></i>No saved models yet. Go to Train.</div>';
+    return;
+  }
+  el.innerHTML = d.models.map(m=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem;background:rgba(255,255,255,0.02);border:1px solid var(--card-border);border-radius:6px;margin-bottom:0.5rem;">
+      <div><i class="fas fa-cube" style="color:var(--orange);margin-right:0.5rem"></i><b style="font-family:Rajdhani;font-size:1.05rem">${m.name}</b><span style="font-size:0.75rem;color:var(--muted);margin-left:0.5rem">.pkl</span></div>
+      <a href="/predict?model=${m.name}" class="btn-sm-orange">Use Model</a>
+    </div>`).join('');
+}
+
+async function uploadModel() {
+  const file = document.getElementById('modelFile').files[0];
+  if (!file) return;
+  const form = new FormData();
+  form.append('model', file);
+  document.getElementById('uploadStatus').textContent = 'Uploading...';
+  const res = await fetch('/api/models/upload', {method:'POST', body: form});
+  const d = await res.json();
+  if (d.success) { toast('Model uploaded: ' + d.name, 'success'); loadModelsList(); document.getElementById('uploadStatus').textContent = 'Uploaded: ' + d.name; }
+  else toast('Upload failed', 'error');
+}
+
+// ─── Init ───────────────────────────────────────────────────────────────────
+loadOverview();
+</script>
+</body>
+</html>
