@@ -45,9 +45,7 @@ templates = Jinja2Templates(directory=os.path.join(_BASE, 'templates'))
 FEATURES = [
     'Density, at 15°C, g/cm3',
     'API',
-    'T50% (TBP),◦C',
     'Kin. Viscosityat 40◦C,mm2/s',
-    'Flash point, °C',
     'Sulphur, wt.%',
     'Saturate, wt.%',
     'Aromatics, wt.%',
@@ -111,15 +109,15 @@ def save_history(history):
 
 @app.get('/', response_class=HTMLResponse)
 def index(request: Request):
-    return templates.TemplateResponse('index.html', {'request': request})
+    return templates.TemplateResponse(request, 'index.html')
 
 @app.get('/admin', response_class=HTMLResponse)
 def admin(request: Request):
-    return templates.TemplateResponse('admin.html', {'request': request})
+    return templates.TemplateResponse(request, 'admin.html')
 
 @app.get('/predict', response_class=HTMLResponse)
 def predict_page(request: Request):
-    return templates.TemplateResponse('predict.html', {'request': request})
+    return templates.TemplateResponse(request, 'predict.html')
 
 
 # ─── API ──────────────────────────────────────────────────────────────────────
@@ -253,10 +251,27 @@ def train_all(data: TrainAllRequest = TrainAllRequest()):
 
 @app.get('/api/models/list')
 def list_models():
+    history = load_history()
+    # Map model name to its latest R2 score in training history
+    model_r2 = {}
+    for h in history:
+        if isinstance(h, dict) and 'model' in h and 'r2' in h:
+            model_r2[h['model']] = h['r2']
+
     models = []
-    for f in os.listdir(MODELS_DIR):
-        if f.endswith('.pkl'):
-            models.append({'name': f.replace('.pkl', ''), 'file': f})
+    if os.path.exists(MODELS_DIR):
+        for f in os.listdir(MODELS_DIR):
+            if f.endswith('.pkl'):
+                name = f.replace('.pkl', '')
+                r2 = model_r2.get(name, None)
+                models.append({
+                    'name': name,
+                    'file': f,
+                    'r2': r2
+                })
+
+    # Sort models by R2 score descending; models without R2 score sorted last
+    models.sort(key=lambda m: m['r2'] if m['r2'] is not None else -999.0, reverse=True)
     return {'models': models}
 
 @app.get('/api/models/history')
@@ -284,25 +299,46 @@ def predict(data: PredictRequest):
     pred = float(model.predict(X)[0])
     pred = max(0, pred)
 
-    if pred < 2:
-        risk = 'Low'; risk_pct = int(20 + pred * 10)
-    elif pred < 5:
-        risk = 'Medium'; risk_pct = int(40 + (pred - 2) * 10)
-    elif pred < 10:
-        risk = 'High'; risk_pct = int(70 + (pred - 5) * 3)
-    else:
-        risk = 'Critical'; risk_pct = min(99, int(85 + pred))
-
     density = float(raw.get('Density, at 15°C, g/cm3', 0.87))
     resins = float(raw.get('Resins, wt.%', 5))
     aromatics = float(raw.get('Aromatics, wt.%', 20))
+    saturates = float(raw.get('Saturate, wt.%', 30))
+
+    cii = round((pred + saturates) / (resins + aromatics + 0.001), 4) if (resins + aromatics) > 0 else 0
     stability = round((resins + aromatics * 0.1) / (pred + 1) * density, 3) if pred > 0 else 1.5
     stability = min(2.0, max(0.1, stability))
-
     precip_prob = int(min(99, max(1, pred * 5 + (density - 0.85) * 100)))
 
-    saturates = float(raw.get('Saturate, wt.%', 30))
-    cii = round((pred + saturates) / (resins + aromatics + 0.001), 4) if (resins + aromatics) > 0 else 0
+    # Scientific Risk Matrix Classification (CII + Asphaltene quantity)
+    if cii < 0.7:  # Collodially Stable
+        if pred < 1.0:
+            risk = 'Low'; risk_pct = int(10 + pred * 10)
+        elif pred < 4.0:
+            risk = 'Low'; risk_pct = int(20 + (pred - 1.0) * 6.6)
+        elif pred < 8.0:
+            risk = 'Medium'; risk_pct = int(40 + (pred - 4.0) * 7.5)
+        else:
+            risk = 'High'; risk_pct = min(84, int(70 + (pred - 8.0) * 1.5))
+            
+    elif cii <= 0.9:  # Transition Zone
+        if pred < 1.0:
+            risk = 'Low'; risk_pct = int(15 + pred * 15)
+        elif pred < 4.0:
+            risk = 'Medium'; risk_pct = int(40 + (pred - 1.0) * 10)
+        elif pred < 8.0:
+            risk = 'High'; risk_pct = int(70 + (pred - 4.0) * 3.75)
+        else:
+            risk = 'Critical'; risk_pct = min(99, int(85 + (pred - 8.0) * 1.2))
+            
+    else:  # Collodially Unstable (cii > 0.9)
+        if pred < 1.0:
+            risk = 'Medium'; risk_pct = int(40 + pred * 20)
+        elif pred < 4.0:
+            risk = 'High'; risk_pct = int(70 + (pred - 1.0) * 5)
+        elif pred < 8.0:
+            risk = 'Critical'; risk_pct = int(85 + (pred - 4.0) * 2)
+        else:
+            risk = 'Critical'; risk_pct = min(99, int(93 + (pred - 8.0) * 0.5))
 
     return {
         'prediction': round(pred, 3),

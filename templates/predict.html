@@ -1,627 +1,1101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png"
+    href="data:image/png;base64,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">
   <title>CrudeAI — Prediction Dashboard</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap');
-  :root {
-    --dark:#0a0e1a; --darker:#060911; --card-bg:#0f1528;
-    --card-border:#1e2d50; --orange:#f47c20; --orange-glow:rgba(244,124,32,0.25);
-    --text:#c8d8f0; --muted:#5a6a8a; --success:#2ed573; --danger:#ff4757;
-    --blue:#4da6ff; --yellow:#ffa502;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--dark); color:var(--text); font-family:'Exo 2',sans-serif; min-height:100vh; }
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap');
 
-  /* TOPBAR */
-  .topbar {
-    background:var(--darker); border-bottom:1px solid var(--card-border);
-    padding:0.75rem 1.5rem; display:flex; align-items:center; justify-content:space-between;
-    position:sticky; top:0; z-index:100;
-  }
-  .topbar-left { display:flex; align-items:center; gap:1.5rem; }
-  .logo { font-family:'Rajdhani',sans-serif; font-size:1.3rem; font-weight:700; color:#fff; text-decoration:none; }
-  .logo span { color:var(--orange); }
-  .topbar-subtitle { font-size:0.8rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; }
-  .model-select-wrapper { display:flex; align-items:center; gap:0.75rem; }
-  .model-select-wrapper label { font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; white-space:nowrap; }
-  select.model-pick {
-    background:rgba(255,255,255,0.05); border:1px solid var(--card-border);
-    color:var(--text); padding:0.4rem 0.75rem; border-radius:4px; font-family:'Exo 2',sans-serif;
-    font-size:0.9rem; outline:none; min-width:160px;
-  }
-  select.model-pick:focus { border-color:var(--orange); }
-  .topbar-actions { display:flex; gap:0.75rem; align-items:center; }
-  .topbar-time { font-size:0.78rem; color:var(--muted); white-space:nowrap; }
+    :root {
+      --dark: #0a0e1a;
+      --darker: #060911;
+      --card-bg: #0f1528;
+      --card-border: #1e2d50;
+      --orange: #f47c20;
+      --orange-glow: rgba(244, 124, 32, 0.25);
+      --text: #c8d8f0;
+      --muted: #5a6a8a;
+      --success: #2ed573;
+      --danger: #ff4757;
+      --blue: #4da6ff;
+      --yellow: #ffa502;
+    }
 
-  /* LAYOUT */
-  .main-grid { display:grid; grid-template-columns:360px 1fr; gap:0; min-height:calc(100vh - 56px); }
-  .input-panel {
-    background:var(--darker); border-right:1px solid var(--card-border);
-    padding:1.25rem; overflow-y:auto; max-height:calc(100vh - 56px);
-  }
-  .results-panel { padding:1.25rem; overflow-y:auto; max-height:calc(100vh - 56px); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* FORM */
-  .panel-section { margin-bottom:1.25rem; }
-  .section-header {
-    display:flex; align-items:center; gap:0.5rem;
-    font-family:'Rajdhani',sans-serif; font-size:0.85rem; font-weight:600;
-    letter-spacing:0.12em; text-transform:uppercase; color:var(--orange);
-    margin-bottom:0.75rem; padding-bottom:0.4rem;
-    border-bottom:1px solid rgba(244,124,32,0.2);
-  }
-  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; }
-  .form-group { margin-bottom:0.6rem; }
-  .form-group label { font-size:0.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:0.25rem; display:block; }
-  .form-group input {
-    width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--card-border);
-    border-radius:4px; color:var(--text); padding:0.45rem 0.65rem; font-size:0.88rem;
-    outline:none; transition:border-color 0.2s; font-family:'Exo 2',sans-serif;
-  }
-  .form-group input:focus { border-color:var(--orange); }
-  .form-group .unit { font-size:0.7rem; color:var(--muted); margin-top:0.1rem; }
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Exo 2', sans-serif;
+      min-height: 100vh;
+    }
 
-  .btn-predict {
-    width:100%; background:var(--orange); color:#fff; border:none;
-    padding:0.75rem; border-radius:4px; font-family:'Rajdhani',sans-serif;
-    font-size:1.1rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
-    cursor:pointer; transition:all 0.25s;
-    box-shadow:0 0 24px var(--orange-glow);
-  }
-  .btn-predict:hover { background:#ff9000; transform:translateY(-1px); }
-  .btn-predict:disabled { opacity:0.5; cursor:default; transform:none; }
+    /* TOPBAR */
+    .topbar {
+      background: var(--darker);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-  .btn-clear {
-    width:100%; background:transparent; color:var(--muted); border:1px solid var(--card-border);
-    padding:0.55rem; border-radius:4px; font-family:'Rajdhani',sans-serif;
-    font-size:0.9rem; font-weight:600; cursor:pointer; margin-top:0.5rem;
-    transition:all 0.2s;
-  }
-  .btn-clear:hover { border-color:var(--muted); color:var(--text); }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
 
-  /* CARDS */
-  .card-box {
-    background:var(--card-bg); border:1px solid var(--card-border);
-    border-radius:8px; padding:1.25rem; margin-bottom:1rem;
-  }
-  .card-title {
-    font-family:'Rajdhani',sans-serif; font-size:0.75rem; font-weight:600;
-    letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);
-    margin-bottom:0.9rem;
-  }
+    .logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
 
-  /* KPI CARDS */
-  .kpi-row { display:grid; grid-template-columns:repeat(4,1fr); gap:0.75rem; margin-bottom:1rem; }
-  .kpi-card {
-    background:var(--card-bg); border:1px solid var(--card-border);
-    border-radius:8px; padding:1rem;
-    transition:all 0.3s; position:relative; overflow:hidden;
-  }
-  .kpi-card::before {
-    content:''; position:absolute; top:0; left:0; right:0; height:2px;
-    opacity:0; transition:opacity 0.3s;
-  }
-  .kpi-card.c-orange::before { background:var(--orange); }
-  .kpi-card.c-green::before { background:var(--success); }
-  .kpi-card.c-blue::before { background:var(--blue); }
-  .kpi-card.c-yellow::before { background:var(--yellow); }
-  .kpi-card.active::before { opacity:1; }
-  .kpi-icon { font-size:1.1rem; margin-bottom:0.4rem; }
-  .kpi-label { font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.2rem; }
-  .kpi-value { font-family:'Rajdhani',sans-serif; font-size:1.9rem; font-weight:700; transition:all 0.5s; }
-  .kpi-sub { font-size:0.72rem; color:var(--muted); margin-top:0.1rem; }
+    .logo span {
+      color: var(--orange);
+    }
 
-  /* GAUGE */
-  .gauge-container { display:flex; flex-direction:column; align-items:center; padding:0.5rem; }
-  .gauge-wrapper { position:relative; width:200px; height:120px; }
-  .gauge-svg { width:200px; height:120px; }
-  .gauge-value-display {
-    position:absolute; bottom:5px; left:50%; transform:translateX(-50%);
-    text-align:center;
-  }
-  .gauge-pct { font-family:'Rajdhani',sans-serif; font-size:2.2rem; font-weight:700; color:#fff; line-height:1; }
-  .gauge-risk {
-    font-family:'Rajdhani',sans-serif; font-size:0.85rem; font-weight:600;
-    letter-spacing:0.15em; text-transform:uppercase; margin-top:0.3rem;
-  }
-  .risk-Low { color:var(--success); }
-  .risk-Medium { color:var(--yellow); }
-  .risk-High { color:var(--orange); }
-  .risk-Critical { color:var(--danger); }
+    .topbar-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
 
-  /* CHART containers */
-  .chart-wrap { position:relative; height:240px; }
-  .chart-wrap-sm { position:relative; height:190px; }
+    .model-select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
 
-  /* AI INTERPRETATION */
-  .ai-box {
-    background:rgba(244,124,32,0.06); border:1px solid rgba(244,124,32,0.2);
-    border-radius:8px; padding:1.25rem;
-  }
-  .ai-title { font-family:'Rajdhani',sans-serif; font-size:0.85rem; font-weight:600; color:var(--orange); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem; }
-  .ai-text { font-size:0.88rem; color:var(--text); line-height:1.7; }
-  .ai-text b { color:var(--orange); }
+    .model-select-wrapper label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
 
-  /* PLACEHOLDER */
-  .placeholder-state { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:60vh; color:var(--muted); }
-  .placeholder-state i { font-size:3rem; margin-bottom:1rem; opacity:0.3; }
-  .placeholder-state h4 { font-family:'Rajdhani',sans-serif; font-size:1.3rem; color:var(--muted); }
+    select.model-pick {
+      background: var(--darker);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      min-width: 180px;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+    }
 
-  /* SPINNER */
-  .spinner { display:inline-block; width:20px; height:20px; border:2px solid rgba(244,124,32,0.3); border-top-color:var(--orange); border-radius:50%; animation:spin 0.8s linear infinite; }
-  @keyframes spin { to { transform:rotate(360deg); } }
+    select.model-pick:hover {
+      border-color: var(--muted);
+    }
 
-  /* TOOLTIP */
-  .tooltip-text { font-size:0.7rem; color:var(--muted); margin-top:0.2rem; }
+    select.model-pick:focus {
+      border-color: var(--orange);
+    }
 
-  /* Scrollbar */
-  ::-webkit-scrollbar { width:4px; }
-  ::-webkit-scrollbar-thumb { background:var(--card-border); border-radius:2px; }
+    select.model-pick option {
+      background: var(--card-bg);
+      color: var(--text);
+    }
 
-  @media (max-width:900px) {
-    .main-grid { grid-template-columns:1fr; }
-    .input-panel { max-height:none; border-right:none; border-bottom:1px solid var(--card-border); }
-    .results-panel { max-height:none; }
-    .kpi-row { grid-template-columns:repeat(2,1fr); }
-  }
-</style>
+    .topbar-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .topbar-time {
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* LAYOUT */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 0;
+      min-height: calc(100vh - 56px);
+    }
+
+    .input-panel {
+      background: var(--darker);
+      border-right: 1px solid var(--card-border);
+      padding: 1.25rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 56px);
+    }
+
+    .results-panel {
+      padding: 1.25rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 56px);
+    }
+
+    /* FORM */
+    .panel-section {
+      margin-bottom: 1.25rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(244, 124, 32, 0.2);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.6rem;
+    }
+
+    .form-group label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    .form-group input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      color: var(--text);
+      padding: 0.45rem 0.65rem;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+      font-family: 'Exo 2', sans-serif;
+    }
+
+    .form-group input:focus {
+      border-color: var(--orange);
+    }
+
+    .form-group .unit {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    .btn-predict {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 0 24px var(--orange-glow);
+    }
+
+    .btn-predict:hover {
+      background: #ff9000;
+      transform: translateY(-1px);
+    }
+
+    .btn-predict:disabled {
+      opacity: 0.5;
+      cursor: default;
+      transform: none;
+    }
+
+    .btn-clear {
+      width: 100%;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--card-border);
+      padding: 0.55rem;
+      border-radius: 4px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn-clear:hover {
+      border-color: var(--muted);
+      color: var(--text);
+    }
+
+    /* CARDS */
+    .card-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    /* KPI CARDS */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .kpi-card.c-orange::before {
+      background: var(--orange);
+    }
+
+    .kpi-card.c-green::before {
+      background: var(--success);
+    }
+
+    .kpi-card.c-blue::before {
+      background: var(--blue);
+    }
+
+    .kpi-card.c-yellow::before {
+      background: var(--yellow);
+    }
+
+    .kpi-card.active::before {
+      opacity: 1;
+    }
+
+    .kpi-icon {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .kpi-label {
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.2rem;
+    }
+
+    .kpi-value {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      transition: all 0.5s;
+    }
+
+    .kpi-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    /* GAUGE */
+    .gauge-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+    }
+
+    .gauge-wrapper {
+      position: relative;
+      width: 200px;
+      height: 120px;
+    }
+
+    .gauge-svg {
+      width: 200px;
+      height: 120px;
+    }
+
+    .gauge-value-display {
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .gauge-pct {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .gauge-risk {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    .risk-Low {
+      color: var(--success);
+    }
+
+    .risk-Medium {
+      color: var(--yellow);
+    }
+
+    .risk-High {
+      color: var(--orange);
+    }
+
+    .risk-Critical {
+      color: var(--danger);
+    }
+
+    /* CHART containers */
+    .chart-wrap {
+      position: relative;
+      height: 240px;
+    }
+
+    .chart-wrap-sm {
+      position: relative;
+      height: 190px;
+    }
+
+    /* AI INTERPRETATION */
+    .ai-box {
+      background: rgba(244, 124, 32, 0.06);
+      border: 1px solid rgba(244, 124, 32, 0.2);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .ai-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ai-text {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .ai-text b {
+      color: var(--orange);
+    }
+
+    /* PLACEHOLDER */
+    .placeholder-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      color: var(--muted);
+    }
+
+    .placeholder-state i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+
+    .placeholder-state h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.3rem;
+      color: var(--muted);
+    }
+
+    /* SPINNER */
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(244, 124, 32, 0.3);
+      border-top-color: var(--orange);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* TOOLTIP */
+    .tooltip-text {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--card-border);
+      border-radius: 2px;
+    }
+
+    @media (max-width:900px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .input-panel {
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      .results-panel {
+        max-height: none;
+      }
+
+    @keyframes card-pulse {
+      0% { box-shadow: 0 0 8px rgba(255, 71, 87, 0.2); border-color: rgba(255, 71, 87, 0.4); }
+      50% { box-shadow: 0 0 20px rgba(255, 71, 87, 0.6); border-color: rgba(255, 71, 87, 1); }
+      100% { box-shadow: 0 0 8px rgba(255, 71, 87, 0.2); border-color: rgba(255, 71, 87, 0.4); }
+    }
+    .blink-card {
+      animation: card-pulse 1.5s infinite ease-in-out;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-left">
-    <a href="/" class="logo">
-      Crude<span>AI</span></a>
-    <div class="topbar-subtitle">Prediction Dashboard</div>
-    <div class="model-select-wrapper">
-      <label>Model:</label>
-      <select class="model-pick" id="modelPick">
-        <option value="">— select —</option>
-      </select>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="/" class="logo">
+        Crude<span>AI</span></a>
+      <div class="topbar-subtitle">Prediction Dashboard</div>
+      <div class="model-select-wrapper">
+        <label>Model:</label>
+        <select class="model-pick" id="modelPick">
+          <option value="">— select —</option>
+        </select>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <div class="topbar-time" id="topTime"></div>
+      <a href="/admin"
+        style="color:var(--muted);text-decoration:none;font-size:0.82rem;border:1px solid var(--card-border);padding:0.35rem 0.8rem;border-radius:4px;">
+        <i class="fas fa-cogs me-1"></i>Admin
+      </a>
     </div>
   </div>
-  <div class="topbar-actions">
-    <div class="topbar-time" id="topTime"></div>
-    <a href="/admin" style="color:var(--muted);text-decoration:none;font-size:0.82rem;border:1px solid var(--card-border);padding:0.35rem 0.8rem;border-radius:4px;">
-      <i class="fas fa-cogs me-1"></i>Admin
-    </a>
-  </div>
-</div>
 
-<!-- MAIN -->
-<div class="main-grid">
+  <!-- MAIN -->
+  <div class="main-grid">
 
-  <!-- INPUT PANEL -->
-  <div class="input-panel">
+    <!-- INPUT PANEL -->
+    <div class="input-panel">
 
-    <div class="panel-section">
-      <div class="section-header"><i class="fas fa-thermometer-half"></i> Operating Conditions</div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Density (g/cm³)</label>
-          <input type="number" id="f_density" step="0.001" placeholder="0.870" value="0.870">
-          <div class="unit">at 15°C</div>
-        </div>
-        <div class="form-group">
-          <label>API Gravity (°API)</label>
-          <input type="number" id="f_api" step="0.1" placeholder="31.5" value="31.5">
-        </div>
-        <div class="form-group">
-          <label>T50% TBP (°C)</label>
-          <input type="number" id="f_t50" placeholder="320" value="320">
-        </div>
-        <div class="form-group">
-          <label>Kin. Viscosity (mm²/s)</label>
-          <input type="number" id="f_visc" step="0.1" placeholder="12.5" value="12.5">
-          <div class="unit">at 40°C</div>
-        </div>
-        <div class="form-group">
-          <label>Flash Point (°C)</label>
-          <input type="number" id="f_flash" placeholder="25" value="25">
-        </div>
-        <div class="form-group">
-          <label>Sulphur (wt.%)</label>
-          <input type="number" id="f_sulphur" step="0.01" placeholder="1.8" value="1.8">
-        </div>
-      </div>
-    </div>
-
-    <div class="panel-section">
-      <div class="section-header"><i class="fas fa-project-diagram"></i> SARA Composition</div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Saturates (%)</label>
-          <input type="number" id="f_sat" step="0.1" placeholder="48.0" value="48.0">
-        </div>
-        <div class="form-group">
-          <label>Aromatics (%)</label>
-          <input type="number" id="f_aro" step="0.1" placeholder="28.5" value="28.5">
-        </div>
-        <div class="form-group">
-          <label>Resins (%)</label>
-          <input type="number" id="f_res" step="0.1" placeholder="8.0" value="8.0">
-        </div>
-        <div class="form-group">
-          <label style="color:var(--orange)">Asphaltenes (%) ←</label>
-          <input type="number" id="f_asph_known" step="0.01" placeholder="optional" style="border-color:rgba(244,124,32,0.4)">
-          <div class="unit">Leave blank to predict</div>
-        </div>
-      </div>
-    </div>
-
-    <button class="btn-predict" onclick="runPrediction()" id="predictBtn">
-      <i class="fas fa-bolt me-2"></i>RUN PREDICTION
-    </button>
-    <button class="btn-clear" onclick="loadExample()">
-      <i class="fas fa-magic me-2"></i>Load Example
-    </button>
-    <button class="btn-clear" onclick="clearForm()">
-      <i class="fas fa-times me-2"></i>Clear
-    </button>
-
-    <!-- SAMPLE CRUDES -->
-    <div class="mt-3">
-      <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Quick Samples</div>
-      <div style="display:flex;flex-wrap:wrap;gap:0.4rem">
-        <button class="btn-clear" style="width:auto;padding:0.25rem 0.6rem;font-size:0.75rem;" onclick="loadPreset('light')">Light Crude</button>
-        <button class="btn-clear" style="width:auto;padding:0.25rem 0.6rem;font-size:0.75rem;" onclick="loadPreset('medium')">Medium Crude</button>
-        <button class="btn-clear" style="width:auto;padding:0.25rem 0.6rem;font-size:0.75rem;" onclick="loadPreset('heavy')">Heavy Crude</button>
-        <button class="btn-clear" style="width:auto;padding:0.25rem 0.6rem;font-size:0.75rem;" onclick="loadPreset('bitumen')">Bitumen</button>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- RESULTS PANEL -->
-  <div class="results-panel">
-    <div id="placeholderState" class="placeholder-state">
-      <i class="fas fa-flask"></i>
-      <h4>Enter crude oil properties and run prediction</h4>
-      <p style="font-size:0.9rem;margin-top:0.5rem">Results, risk assessment and charts will appear here</p>
-    </div>
-    <div id="resultsState" style="display:none;">
-
-      <!-- KPI ROW -->
-      <div class="kpi-row">
-        <div class="kpi-card c-orange" id="kpi_asph">
-          <div class="kpi-icon">💧</div>
-          <div class="kpi-label">Asphaltenes</div>
-          <div class="kpi-value" id="val_asph" style="color:var(--orange)">—</div>
-          <div class="kpi-sub">wt.%</div>
-        </div>
-        <div class="kpi-card c-green" id="kpi_risk">
-          <div class="kpi-icon">⚠️</div>
-          <div class="kpi-label">Risk Level</div>
-          <div class="kpi-value" id="val_risk" style="font-size:1.4rem">—</div>
-          <div class="kpi-sub" id="val_risk_pct">—</div>
-        </div>
-        <div class="kpi-card c-blue" id="kpi_cii">
-          <div class="kpi-icon">📊</div>
-          <div class="kpi-label">CII Index</div>
-          <div class="kpi-value" id="val_cii" style="color:var(--blue)">—</div>
-          <div class="kpi-sub">Colloidal Instability</div>
-        </div>
-        <div class="kpi-card c-yellow" id="kpi_stab">
-          <div class="kpi-icon">🔬</div>
-          <div class="kpi-label">Stability Index</div>
-          <div class="kpi-value" id="val_stab" style="color:var(--yellow)">—</div>
-          <div class="kpi-sub">Precipitation: <span id="val_precip">—</span>%</div>
+      <div class="panel-section">
+        <div class="section-header"><i class="fas fa-thermometer-half"></i> Operating Conditions</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Density (g/cm³)</label>
+            <input type="number" id="f_density" step="0.001" placeholder="0.870" value="0.870">
+            <div class="unit">at 15°C</div>
+          </div>
+          <div class="form-group">
+            <label>API Gravity (°API)</label>
+            <input type="number" id="f_api" step="0.1" placeholder="31.5" value="31.5">
+          </div>
+          <div class="form-group">
+            <label>Kin. Viscosity (mm²/s)</label>
+            <input type="number" id="f_visc" step="0.1" placeholder="12.5" value="12.5">
+            <div class="unit">at 40°C</div>
+          </div>
+          <div class="form-group">
+            <label>Sulphur (wt.%)</label>
+            <input type="number" id="f_sulphur" step="0.01" placeholder="1.8" value="1.8">
+          </div>
         </div>
       </div>
 
-      <!-- GAUGE + SARA -->
-      <div class="row g-3 mb-3">
-        <div class="col-md-5">
-          <div class="card-box h-100">
-            <div class="card-title">Risk Gauge</div>
-            <div class="gauge-container">
-              <div class="gauge-wrapper">
-                <svg class="gauge-svg" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Background arc -->
-                  <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#1e2d50" stroke-width="16" stroke-linecap="round"/>
-                  <!-- Color zones -->
-                  <path d="M 20 100 A 80 80 0 0 1 60 27" fill="none" stroke="#2ed573" stroke-width="16" stroke-linecap="butt" opacity="0.6"/>
-                  <path d="M 60 27 A 80 80 0 0 1 100 20" fill="none" stroke="#ffa502" stroke-width="16" stroke-linecap="butt" opacity="0.6"/>
-                  <path d="M 100 20 A 80 80 0 0 1 140 27" fill="none" stroke="#f47c20" stroke-width="16" stroke-linecap="butt" opacity="0.6"/>
-                  <path d="M 140 27 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4757" stroke-width="16" stroke-linecap="butt" opacity="0.6"/>
-                  <!-- Active needle arc -->
-                  <path id="gaugeArc" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="transparent" stroke-width="16" stroke-linecap="round"/>
-                  <!-- Needle -->
-                  <g id="needleGroup" transform="rotate(-90, 100, 100)">
-                    <line x1="100" y1="100" x2="100" y2="28" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-                    <circle cx="100" cy="100" r="6" fill="#fff"/>
-                  </g>
-                  <!-- Labels -->
-                  <text x="15" y="115" fill="#2ed573" font-size="9" font-family="Rajdhani">Low</text>
-                  <text x="82" y="13" fill="#ffa502" font-size="9" font-family="Rajdhani" text-anchor="middle">Med</text>
-                  <text x="163" y="115" fill="#ff4757" font-size="9" font-family="Rajdhani" text-anchor="end">High</text>
-                </svg>
-                <div class="gauge-value-display">
-                  <div class="gauge-pct" id="gaugePct">—</div>
-                  <div class="gauge-risk" id="gaugeRisk">—</div>
+      <div class="panel-section">
+        <div class="section-header"><i class="fas fa-project-diagram"></i> SARA Composition</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Saturates (%)</label>
+            <input type="number" id="f_sat" step="0.1" placeholder="48.0" value="48.0">
+          </div>
+          <div class="form-group">
+            <label>Aromatics (%)</label>
+            <input type="number" id="f_aro" step="0.1" placeholder="28.5" value="28.5">
+          </div>
+          <div class="form-group">
+            <label>Resins (%)</label>
+            <input type="number" id="f_res" step="0.1" placeholder="8.0" value="8.0">
+          </div>
+          <div class="form-group">
+            <label style="color:var(--orange)">Asphaltenes (%) ←</label>
+            <input type="number" id="f_asph_known" step="0.01" placeholder="optional"
+              style="border-color:rgba(244,124,32,0.4)">
+            <div class="unit">Leave blank to predict</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-predict" onclick="runPrediction()" id="predictBtn">
+        <i class="fas fa-bolt me-2"></i>RUN PREDICTION
+      </button>
+      <button class="btn-clear" onclick="loadExample()">
+        <i class="fas fa-magic me-2"></i>Load Example
+      </button>
+      <button class="btn-clear" onclick="clearForm()">
+        <i class="fas fa-times me-2"></i>Clear
+      </button>
+
+      <!-- SAMPLE CRUDES -->
+      <div class="mt-3">
+        <div
+          style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">
+          Quick Samples</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem">
+          <button class="btn-clear" style="width:auto;padding:0.25rem 0.6rem;font-size:0.75rem;"
+            onclick="loadPreset('light')">Light Crude</button>
+          <button class="btn-clear" style="width:auto;padding:0.25rem 0.6rem;font-size:0.75rem;"
+            onclick="loadPreset('medium')">Medium Crude</button>
+          <button class="btn-clear" style="width:auto;padding:0.25rem 0.6rem;font-size:0.75rem;"
+            onclick="loadPreset('heavy')">Heavy Crude</button>
+          <button class="btn-clear" style="width:auto;padding:0.25rem 0.6rem;font-size:0.75rem;"
+            onclick="loadPreset('bitumen')">Bitumen</button>
+        </div>
+      </div>
+
+      <!-- INHIBITOR RECOMMENDATION FORM -->
+      <div id="recommendationForm" style="display:none;" class="panel-section mt-4">
+        <div class="section-header"><i class="fas fa-prescription-bottle-alt"></i> Chemical Treatment Optimizer</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Temperature (°C)</label>
+            <input type="number" id="f_temp" step="1" placeholder="25" value="25">
+          </div>
+          <div class="form-group">
+            <label>Residence Time (days)</label>
+            <input type="number" id="f_time" step="1" placeholder="10" value="10">
+          </div>
+        </div>
+        <button class="btn-predict" style="background:var(--blue);box-shadow: 0 0 24px rgba(77,166,255,0.25);margin-top:0.5rem;" onclick="calculateRecommendation()" id="recommendBtn">
+          <i class="fas fa-calculator me-2"></i>OPTIMIZE DOSAGE
+        </button>
+      </div>
+
+    </div>
+
+    <!-- RESULTS PANEL -->
+    <div class="results-panel">
+      <div id="placeholderState" class="placeholder-state">
+        <i class="fas fa-flask"></i>
+        <h4>Enter crude oil properties and run prediction</h4>
+        <p style="font-size:0.9rem;margin-top:0.5rem">Results, risk assessment and charts will appear here</p>
+      </div>
+      <div id="resultsState" style="display:none;">
+
+        <!-- KPI ROW -->
+        <div class="kpi-row">
+          <div class="kpi-card c-orange" id="kpi_asph">
+            <div class="kpi-icon">💧</div>
+            <div class="kpi-label">Asphaltenes</div>
+            <div class="kpi-value" id="val_asph" style="color:var(--orange)">—</div>
+            <div class="kpi-sub">wt.%</div>
+          </div>
+          <div class="kpi-card c-green" id="kpi_risk">
+            <div class="kpi-icon">⚠️</div>
+            <div class="kpi-label">Risk Level</div>
+            <div class="kpi-value" id="val_risk" style="font-size:1.4rem">—</div>
+            <div class="kpi-sub" id="val_risk_pct">—</div>
+          </div>
+          <div class="kpi-card c-blue" id="kpi_cii">
+            <div class="kpi-icon">📊</div>
+            <div class="kpi-label">CII Index</div>
+            <div class="kpi-value" id="val_cii" style="color:var(--blue)">—</div>
+            <div class="kpi-sub">Colloidal Instability</div>
+          </div>
+
+        </div>
+
+        <!-- GAUGE + SARA -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-5">
+            <div class="card-box h-100">
+              <div class="card-title">Risk Gauge</div>
+              <div class="gauge-container">
+                <div class="gauge-wrapper">
+                  <svg class="gauge-svg" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background arc -->
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#1e2d50" stroke-width="16"
+                      stroke-linecap="round" />
+                    <!-- Color zones -->
+                    <path d="M 20 100 A 80 80 0 0 1 60 27" fill="none" stroke="#2ed573" stroke-width="16"
+                      stroke-linecap="butt" opacity="0.6" />
+                    <path d="M 60 27 A 80 80 0 0 1 100 20" fill="none" stroke="#ffa502" stroke-width="16"
+                      stroke-linecap="butt" opacity="0.6" />
+                    <path d="M 100 20 A 80 80 0 0 1 140 27" fill="none" stroke="#f47c20" stroke-width="16"
+                      stroke-linecap="butt" opacity="0.6" />
+                    <path d="M 140 27 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4757" stroke-width="16"
+                      stroke-linecap="butt" opacity="0.6" />
+                    <!-- Active needle arc -->
+                    <path id="gaugeArc" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="transparent"
+                      stroke-width="16" stroke-linecap="round" />
+                    <!-- Needle -->
+                    <g id="needleGroup" transform="rotate(-90, 100, 100)">
+                      <line x1="100" y1="100" x2="100" y2="28" stroke="#fff" stroke-width="2.5"
+                        stroke-linecap="round" />
+                      <circle cx="100" cy="100" r="6" fill="#fff" />
+                    </g>
+                    <!-- Labels -->
+                    <text x="15" y="115" fill="#2ed573" font-size="9" font-family="Rajdhani">Low</text>
+                    <text x="82" y="13" fill="#ffa502" font-size="9" font-family="Rajdhani"
+                      text-anchor="middle">Med</text>
+                    <text x="163" y="115" fill="#ff4757" font-size="9" font-family="Rajdhani"
+                      text-anchor="end">High</text>
+                  </svg>
+                  <div class="gauge-value-display">
+                    <div class="gauge-pct" id="gaugePct">—</div>
+                    <div class="gauge-risk" id="gaugeRisk">—</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-7">
-          <div class="card-box h-100">
-            <div class="card-title">SARA Composition</div>
-            <div class="chart-wrap-sm"><canvas id="saraChart"></canvas></div>
+          <div class="col-md-7">
+            <div class="card-box h-100">
+              <div class="card-title">SARA Composition</div>
+              <div class="chart-wrap-sm"><canvas id="saraChart"></canvas></div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- CHARTS ROW -->
-      <div class="row g-3 mb-3">
-        <div class="col-md-7">
-          <div class="card-box">
-            <div class="card-title">Deposition Potential vs Temperature</div>
-            <div class="chart-wrap"><canvas id="depChart"></canvas></div>
+        <!-- CHARTS ROW -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-8 mx-auto">
+            <div class="card-box">
+              <div class="card-title">Feature Input Radar</div>
+              <div class="chart-wrap"><canvas id="radarChart"></canvas></div>
+            </div>
           </div>
         </div>
-        <div class="col-md-5">
-          <div class="card-box">
-            <div class="card-title">Feature Input Radar</div>
-            <div class="chart-wrap"><canvas id="radarChart"></canvas></div>
+
+        <!-- CHEMICAL TREATMENT RECOMMENDATION -->
+        <div id="treatmentBox" style="display:none; border-color:rgba(77,166,255,0.3); background: rgba(77,166,255,0.03);" class="card-box mt-3">
+          <div class="card-title" style="color:var(--blue);"><i class="fas fa-prescription-bottle-alt me-2"></i>LASNa Chemical Treatment Recommendation</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="kpi-card c-blue active" style="background: rgba(15,21,40,0.6); border: 1px solid var(--card-border);">
+                <div class="kpi-label">Dosage LASNa</div>
+                <div class="kpi-value" id="rec_dosage" style="color:var(--blue)">0 ppm</div>
+                <div class="kpi-sub" id="rec_regime">Régime Thermique: —</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="kpi-card c-green active" id="rec_risk_card" style="background: rgba(15,21,40,0.6); border: 1px solid var(--card-border);">
+                <div class="kpi-label">Risque Colloïdal</div>
+                <div class="kpi-value" id="rec_risk" style="font-size:1.3rem;">—</div>
+                <div class="kpi-sub" id="rec_mode">Mode d'injection: —</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div style="background:rgba(255,255,255,0.02); border: 1px solid var(--card-border); padding: 1rem; border-radius: 6px;">
+                <div style="font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.4rem;">Consigne Finale</div>
+                <div id="rec_consigne" style="font-size:0.95rem; font-weight:600; color:#fff;">—</div>
+                <div id="rec_vol" style="font-size:0.75rem; color:var(--muted); margin-top:0.3rem;">Volume calculé: —</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- AI INTERPRETATION -->
-      <div class="ai-box">
-        <div class="ai-title"><i class="fas fa-robot"></i>AI Interpretation & Insights</div>
-        <div class="ai-text" id="aiText">Loading analysis...</div>
-      </div>
+        <!-- AI INTERPRETATION -->
+        <div class="ai-box">
+          <div class="ai-title"><i class="fas fa-robot"></i>AI Interpretation & Insights</div>
+          <div class="ai-text" id="aiText">Loading analysis...</div>
+        </div>
 
-    </div><!-- /resultsState -->
+      </div><!-- /resultsState -->
+    </div>
   </div>
-</div>
 
-<script>
-// ─── Time ───────────────────────────────────────────────────────────────────
-function updateTime() { document.getElementById('topTime').textContent = new Date().toLocaleString(); }
-setInterval(updateTime,1000); updateTime();
+  <script>
+    // ─── Time ───────────────────────────────────────────────────────────────────
+    function updateTime() { document.getElementById('topTime').textContent = new Date().toLocaleString(); }
+    setInterval(updateTime, 1000); updateTime();
 
-// ─── Load models ─────────────────────────────────────────────────────────────
-async function loadModels() {
-  const res = await fetch('/api/models/list');
-  const d = await res.json();
-  const sel = document.getElementById('modelPick');
-  d.models.forEach(m => {
-    const o = document.createElement('option');
-    o.value = m.name; o.textContent = m.name;
-    sel.appendChild(o);
-  });
-  // Also check URL param
-  const urlP = new URLSearchParams(window.location.search).get('model');
-  if (urlP) sel.value = urlP;
-  else if (d.models.length) sel.value = d.models[0].name;
-}
-loadModels();
+    // ─── Load models ─────────────────────────────────────────────────────────────
+    async function loadModels() {
+      const res = await fetch('/api/models/list');
+      const d = await res.json();
+      const sel = document.getElementById('modelPick');
+      d.models.forEach(m => {
+        const o = document.createElement('option');
+        o.value = m.name;
+        if (m.r2 !== null && m.r2 !== undefined) {
+          o.textContent = `${m.name} (R² = ${m.r2.toFixed(4)})`;
+        } else {
+          o.textContent = m.name;
+        }
+        sel.appendChild(o);
+      });
+      // Also check URL param
+      const urlP = new URLSearchParams(window.location.search).get('model');
+      if (urlP) sel.value = urlP;
+      else if (d.models.length) sel.value = d.models[0].name;
+    }
+    loadModels();
 
-// ─── Presets ─────────────────────────────────────────────────────────────────
-const PRESETS = {
-  light: { density:0.820, api:42.4, t50:280, visc:3.2, flash:12, sulphur:0.4, sat:65.0, aro:20.0, res:4.5 },
-  medium: { density:0.860, api:32.1, t50:320, visc:10.5, flash:22, sulphur:1.8, sat:50.0, aro:28.0, res:8.0 },
-  heavy: { density:0.920, api:18.7, t50:380, visc:85.0, flash:40, sulphur:3.2, sat:35.0, aro:32.0, res:14.0 },
-  bitumen: { density:0.995, api:8.5, t50:460, visc:800.0, flash:60, sulphur:5.5, sat:20.0, aro:30.0, res:22.0 },
-};
-function loadPreset(name) {
-  const p = PRESETS[name];
-  document.getElementById('f_density').value = p.density;
-  document.getElementById('f_api').value = p.api;
-  document.getElementById('f_t50').value = p.t50;
-  document.getElementById('f_visc').value = p.visc;
-  document.getElementById('f_flash').value = p.flash;
-  document.getElementById('f_sulphur').value = p.sulphur;
-  document.getElementById('f_sat').value = p.sat;
-  document.getElementById('f_aro').value = p.aro;
-  document.getElementById('f_res').value = p.res;
-}
-function loadExample() { loadPreset('medium'); }
-function clearForm() {
-  ['f_density','f_api','f_t50','f_visc','f_flash','f_sulphur','f_sat','f_aro','f_res','f_asph_known'].forEach(id=>document.getElementById(id).value='');
-}
+    // ─── Presets ─────────────────────────────────────────────────────────────────
+    const PRESETS = {
+      light: { density: 0.820, api: 42.4, visc: 3.2, sulphur: 0.4, sat: 65.0, aro: 20.0, res: 4.5 },
+      medium: { density: 0.860, api: 32.1, visc: 10.5, sulphur: 1.8, sat: 50.0, aro: 28.0, res: 8.0 },
+      heavy: { density: 0.920, api: 18.7, visc: 85.0, sulphur: 3.2, sat: 35.0, aro: 32.0, res: 14.0 },
+      bitumen: { density: 0.995, api: 8.5, visc: 800.0, sulphur: 5.5, sat: 20.0, aro: 30.0, res: 22.0 },
+    };
+    function loadPreset(name) {
+      const p = PRESETS[name];
+      document.getElementById('f_density').value = p.density;
+      document.getElementById('f_api').value = p.api;
+      document.getElementById('f_visc').value = p.visc;
+      document.getElementById('f_sulphur').value = p.sulphur;
+      document.getElementById('f_sat').value = p.sat;
+      document.getElementById('f_aro').value = p.aro;
+      document.getElementById('f_res').value = p.res;
+    }
+    function loadExample() { loadPreset('medium'); }
+    function clearForm() {
+      ['f_density', 'f_api', 'f_visc', 'f_sulphur', 'f_sat', 'f_aro', 'f_res', 'f_asph_known'].forEach(id => document.getElementById(id).value = '');
+    }
 
-// ─── Prediction ───────────────────────────────────────────────────────────────
-let saraChartInst=null, depChartInst=null, radarChartInst=null;
+    // ─── Prediction ───────────────────────────────────────────────────────────────
+    let saraChartInst = null, radarChartInst = null, currentCii = 0;
 
-async function runPrediction() {
-  const model = document.getElementById('modelPick').value;
-  if (!model) { alert('Please select a model first. Go to Admin → Train a model.'); return; }
+    async function runPrediction() {
+      const model = document.getElementById('modelPick').value;
+      if (!model) { alert('Please select a model first. Go to Admin → Train a model.'); return; }
 
-  const payload = {
-    model,
-    'Density, at 15°C, g/cm3': parseFloat(document.getElementById('f_density').value)||0,
-    'API': parseFloat(document.getElementById('f_api').value)||0,
-    'T50% (TBP),◦C': parseFloat(document.getElementById('f_t50').value)||0,
-    'Kin. Viscosityat 40◦C,mm2/s': parseFloat(document.getElementById('f_visc').value)||0,
-    'Flash point, °C': parseFloat(document.getElementById('f_flash').value)||0,
-    'Sulphur, wt.%': parseFloat(document.getElementById('f_sulphur').value)||0,
-    'Saturate, wt.%': parseFloat(document.getElementById('f_sat').value)||0,
-    'Aromatics, wt.%': parseFloat(document.getElementById('f_aro').value)||0,
-    'Resins, wt.%': parseFloat(document.getElementById('f_res').value)||0,
-  };
+      const payload = {
+        model,
+        'Density, at 15°C, g/cm3': parseFloat(document.getElementById('f_density').value) || 0,
+        'API': parseFloat(document.getElementById('f_api').value) || 0,
+        'Kin. Viscosityat 40◦C,mm2/s': parseFloat(document.getElementById('f_visc').value) || 0,
+        'Sulphur, wt.%': parseFloat(document.getElementById('f_sulphur').value) || 0,
+        'Saturate, wt.%': parseFloat(document.getElementById('f_sat').value) || 0,
+        'Aromatics, wt.%': parseFloat(document.getElementById('f_aro').value) || 0,
+        'Resins, wt.%': parseFloat(document.getElementById('f_res').value) || 0,
+      };
 
-  const btn = document.getElementById('predictBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner me-2"></span>PREDICTING...';
+      const btn = document.getElementById('predictBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner me-2"></span>PREDICTING...';
 
-  try {
-    const res = await fetch('/api/predict', {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(payload)
-    });
-    const d = await res.json();
-    if (d.error) throw new Error(d.error);
-    renderResults(d, payload);
-  } catch(e) {
-    alert('Error: ' + e.message);
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-bolt me-2"></i>RUN PREDICTION';
-  }
-}
+      try {
+        const res = await fetch('/api/predict', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const d = await res.json();
+        if (d.error) throw new Error(d.error);
+        renderResults(d, payload);
+      } catch (e) {
+        alert('Error: ' + e.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-bolt me-2"></i>RUN PREDICTION';
+      }
+    }
 
-function renderResults(d, input) {
-  document.getElementById('placeholderState').style.display = 'none';
-  document.getElementById('resultsState').style.display = 'block';
+    function renderResults(d, input) {
+      document.getElementById('placeholderState').style.display = 'none';
+      document.getElementById('resultsState').style.display = 'block';
 
-  // KPI cards
-  animateValue('val_asph', 0, d.prediction, 800, v => v.toFixed(2) + '%');
-  animateValue('val_cii', 0, d.cii, 800, v => v.toFixed(4));
-  animateValue('val_stab', 0, d.stability_index, 800, v => v.toFixed(3));
+      // KPI cards
+      animateValue('val_asph', 0, d.prediction, 800, v => v.toFixed(2) + '%');
+      animateValue('val_cii', 0, d.cii, 800, v => v.toFixed(4));
 
-  const riskColors = {Low:'#2ed573', Medium:'#ffa502', High:'#f47c20', Critical:'#ff4757'};
-  const rc = riskColors[d.risk] || '#fff';
-  document.getElementById('val_risk').textContent = d.risk;
-  document.getElementById('val_risk').style.color = rc;
-  document.getElementById('val_risk_pct').textContent = d.risk_pct + '% deposition risk';
-  document.getElementById('val_precip').textContent = d.precipitation_prob;
+      const riskColors = { Low: '#2ed573', Medium: '#ffa502', High: '#f47c20', Critical: '#ff4757' };
+      const rc = riskColors[d.risk] || '#fff';
+      document.getElementById('val_risk').textContent = d.risk;
+      document.getElementById('val_risk').style.color = rc;
+      document.getElementById('val_risk_pct').textContent = d.risk_pct + '% deposition risk';
 
-  // Activate kpi cards
-  document.querySelectorAll('.kpi-card').forEach((c,i) => {
-    setTimeout(() => c.classList.add('active'), i * 100);
-  });
+      // Activate kpi cards
+      document.querySelectorAll('.kpi-card').forEach((c, i) => {
+        setTimeout(() => c.classList.add('active'), i * 100);
+      });
 
-  // Gauge
-  updateGauge(d.risk_pct, d.risk);
+      // Gauge
+      updateGauge(d.risk_pct, d.risk);
 
-  // SARA chart
-  renderSara(input);
+      // SARA chart
+      renderSara(input);
 
-  // Deposition chart
-  renderDeposition(d);
 
-  // Radar
-  renderRadar(input);
+      // Radar
+      renderRadar(input);
 
-  // AI interpretation
-  generateInterpretation(d, input);
-}
+      // AI interpretation
+      generateInterpretation(d, input);
 
-function animateValue(id, from, to, duration, fmt) {
-  const el = document.getElementById(id);
-  const start = performance.now();
-  function update(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3);
-    el.textContent = fmt(from + (to - from) * ease);
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
+      // Save predicted CII and manage Treatment Recommendation UI
+      currentCii = d.cii;
+      document.getElementById('recommendationForm').style.display = 'block';
+      document.getElementById('treatmentBox').style.display = 'none';
+    }
 
-function updateGauge(pct, risk) {
-  const angle = -90 + (pct / 100) * 180;
-  const rad = (angle * Math.PI) / 180;
-  const cx = 100, cy = 100, r = 72;
-  const nx = cx + r * Math.cos(rad);
-  const ny = cy + r * Math.sin(rad);
-  document.getElementById('needleGroup').setAttribute('transform', `rotate(${-90 + (pct/100)*180}, 100, 100)`);
-  document.getElementById('gaugePct').textContent = pct + '%';
-  const rc = {Low:'risk-Low',Medium:'risk-Medium',High:'risk-High',Critical:'risk-Critical'};
-  document.getElementById('gaugeRisk').className = 'gauge-risk ' + (rc[risk]||'');
-  document.getElementById('gaugeRisk').textContent = risk.toUpperCase() + ' RISK';
-}
+    function animateValue(id, from, to, duration, fmt) {
+      const el = document.getElementById(id);
+      const start = performance.now();
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = fmt(from + (to - from) * ease);
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
 
-function renderSara(input) {
-  const sat = input['Saturate, wt.%']||0;
-  const aro = input['Aromatics, wt.%']||0;
-  const res = input['Resins, wt.%']||0;
-  const asph = parseFloat(document.getElementById('f_asph_known').value) || 0;
-  const ctx = document.getElementById('saraChart');
-  if (saraChartInst) saraChartInst.destroy();
-  saraChartInst = new Chart(ctx, {
-    type:'doughnut',
-    data:{
-      labels:['Saturates','Aromatics','Resins','Asphaltenes'],
-      datasets:[{data:[sat,aro,res,asph||1], backgroundColor:['rgba(77,166,255,0.8)','rgba(255,165,2,0.8)','rgba(46,213,115,0.8)','rgba(244,124,32,0.8)'], borderWidth:2, borderColor:'#0f1528'}]
-    },
-    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{color:'#c8d8f0',font:{size:11},boxWidth:12}}}}
-  });
-}
+    function updateGauge(pct, risk) {
+      const angle = -90 + (pct / 100) * 180;
+      const rad = (angle * Math.PI) / 180;
+      const cx = 100, cy = 100, r = 72;
+      const nx = cx + r * Math.cos(rad);
+      const ny = cy + r * Math.sin(rad);
+      document.getElementById('needleGroup').setAttribute('transform', `rotate(${-90 + (pct / 100) * 180}, 100, 100)`);
+      document.getElementById('gaugePct').textContent = pct + '%';
+      const rc = { Low: 'risk-Low', Medium: 'risk-Medium', High: 'risk-High', Critical: 'risk-Critical' };
+      document.getElementById('gaugeRisk').className = 'gauge-risk ' + (rc[risk] || '');
+      document.getElementById('gaugeRisk').textContent = risk.toUpperCase() + ' RISK';
+    }
 
-function renderDeposition(d) {
-  const temps = Array.from({length:20},(_, i)=>i*5+10);
-  const base = d.prediction;
-  // Simulate deposition potential curve (S-curve with peak)
-  const vals = temps.map(t => {
-    const peak = 65 + base * 2;
-    if (t < peak) return base * 2 * (1 - Math.exp(-t/30));
-    return base * 2 * Math.exp(-(t-peak)/40) + 0.2;
-  });
-  const ctx = document.getElementById('depChart');
-  if (depChartInst) depChartInst.destroy();
-  depChartInst = new Chart(ctx, {
-    type:'line',
-    data:{
-      labels:temps.map(t=>t+'°C'),
-      datasets:[
-        {label:'Deposition Potential',data:vals,borderColor:'#f47c20',backgroundColor:'rgba(244,124,32,0.1)',fill:true,tension:0.4,pointRadius:3,pointBackgroundColor:'#f47c20'},
-        {label:'Critical Zone',data:temps.map(t=>base),borderColor:'rgba(255,71,87,0.4)',borderDash:[5,5],pointRadius:0}
-      ]
-    },
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#c8d8f0',font:{size:11}}}},
-      scales:{x:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a',maxTicksLimit:10}},
-              y:{grid:{color:'rgba(30,45,80,0.5)'},ticks:{color:'#5a6a8a'},title:{display:true,text:'Deposition Pot.',color:'#5a6a8a'}}}}
-  });
-}
+    function renderSara(input) {
+      const sat = input['Saturate, wt.%'] || 0;
+      const aro = input['Aromatics, wt.%'] || 0;
+      const res = input['Resins, wt.%'] || 0;
+      const asph = parseFloat(document.getElementById('f_asph_known').value) || 0;
+      const ctx = document.getElementById('saraChart');
+      if (saraChartInst) saraChartInst.destroy();
+      saraChartInst = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Saturates', 'Aromatics', 'Resins', 'Asphaltenes'],
+          datasets: [{ data: [sat, aro, res, asph || 1], backgroundColor: ['rgba(77,166,255,0.8)', 'rgba(255,165,2,0.8)', 'rgba(46,213,115,0.8)', 'rgba(244,124,32,0.8)'], borderWidth: 2, borderColor: '#0f1528' }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { position: 'right', labels: { color: '#c8d8f0', font: { size: 11 }, boxWidth: 12 } } } }
+      });
+    }
 
-function renderRadar(input) {
-  const norm = (v,min,max) => Math.min(100,Math.max(0, (v-min)/(max-min)*100));
-  const data = [
-    norm(input['Density, at 15°C, g/cm3']||0, 0.73, 1.0),
-    norm(input['API']||0, 8, 55),
-    norm(input['T50% (TBP),◦C']||0, 150, 500),
-    norm(input['Kin. Viscosityat 40◦C,mm2/s']||0, 0, 800),
-    norm(input['Sulphur, wt.%']||0, 0, 6),
-    norm(input['Saturate, wt.%']||0, 0, 80),
-    norm(input['Aromatics, wt.%']||0, 0, 60),
-    norm(input['Resins, wt.%']||0, 0, 30),
-  ];
-  const ctx = document.getElementById('radarChart');
-  if (radarChartInst) radarChartInst.destroy();
-  radarChartInst = new Chart(ctx, {
-    type:'radar',
-    data:{labels:['Density','API','T50%','Viscosity','Sulphur','Saturates','Aromatics','Resins'],
-          datasets:[{label:'Input',data,backgroundColor:'rgba(244,124,32,0.15)',borderColor:'#f47c20',borderWidth:2,pointBackgroundColor:'#f47c20',pointRadius:4}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-      scales:{r:{grid:{color:'rgba(30,45,80,0.6)'},pointLabels:{color:'#c8d8f0',font:{size:10}},ticks:{display:false},angleLines:{color:'rgba(30,45,80,0.4)'}}}}
-  });
-}
 
-function generateInterpretation(d, input) {
-  const sat = input['Saturate, wt.%']||0;
-  const aro = input['Aromatics, wt.%']||0;
-  const res = input['Resins, wt.%']||0;
-  const density = input['Density, at 15°C, g/cm3']||0;
-  const api = input['API']||0;
-  const riskDescriptions = {
-    Low: `The model predicts a <b>LOW RISK</b> of asphaltene deposition (${d.prediction.toFixed(2)} wt.%). The crude oil composition shows a favorable balance of resins (${res} wt.%) and aromatics (${aro} wt.%) that provide adequate peptization of asphaltene molecules.`,
-    Medium: `The model predicts a <b>MEDIUM RISK</b> of asphaltene deposition (${d.prediction.toFixed(2)} wt.%). The CII of <b>${d.cii}</b> indicates moderate colloidal instability. Monitor operating conditions carefully.`,
-    High: `The model predicts a <b>HIGH RISK</b> of asphaltene deposition (${d.prediction.toFixed(2)} wt.%). The CII of <b>${d.cii}</b> indicates significant instability. The ratio of resins to asphaltenes is insufficient to maintain stable peptization.`,
-    Critical: `The model predicts a <b>CRITICAL RISK</b> of asphaltene deposition (${d.prediction.toFixed(2)} wt.%). Immediate action required. CII = <b>${d.cii}</b> is in the critical zone. High saturates (${sat} wt.%) combined with elevated asphaltenes creates severe destabilization.`,
-  };
-  let text = riskDescriptions[d.risk] || '';
-  text += ` Stability index is <b>${d.stability_index}</b> (${d.stability_index < 0.7 ? 'unstable — consider chemical inhibitors' : d.stability_index < 1.2 ? 'borderline — monitor pipeline temperatures' : 'acceptable conditions'}).`;
-  if (d.risk === 'High' || d.risk === 'Critical') {
-    text += ` <br><br>⚠️ <b>Recommended actions:</b> Apply asphaltene dispersant or inhibitor injection. Maintain pipeline temperatures above ${Math.round(50 + d.prediction)}°C. Conduct regular inspection of flow lines and valves.`;
-  }
-  document.getElementById('aiText').innerHTML = text;
-}
+    function renderRadar(input) {
+      const norm = (v, min, max) => Math.min(100, Math.max(0, (v - min) / (max - min) * 100));
+      const data = [
+        norm(input['Density, at 15°C, g/cm3'] || 0, 0.73, 1.0),
+        norm(input['API'] || 0, 8, 55),
+        norm(input['Kin. Viscosityat 40◦C,mm2/s'] || 0, 0, 800),
+        norm(input['Sulphur, wt.%'] || 0, 0, 6),
+        norm(input['Saturate, wt.%'] || 0, 0, 80),
+        norm(input['Aromatics, wt.%'] || 0, 0, 60),
+        norm(input['Resins, wt.%'] || 0, 0, 30),
+      ];
+      const ctx = document.getElementById('radarChart');
+      if (radarChartInst) radarChartInst.destroy();
+      radarChartInst = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Density', 'API', 'Viscosity', 'Sulphur', 'Saturates', 'Aromatics', 'Resins'],
+          datasets: [{ label: 'Input', data, backgroundColor: 'rgba(244,124,32,0.15)', borderColor: '#f47c20', borderWidth: 2, pointBackgroundColor: '#f47c20', pointRadius: 4 }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
+          scales: { r: { grid: { color: 'rgba(30,45,80,0.6)' }, pointLabels: { color: '#c8d8f0', font: { size: 10 } }, ticks: { display: false }, angleLines: { color: 'rgba(30,45,80,0.4)' } } }
+        }
+      });
+    }
 
-// Init with example
-loadPreset('medium');
-</script>
+    function generateInterpretation(d, input) {
+      const sat = input['Saturate, wt.%'] || 0;
+      const aro = input['Aromatics, wt.%'] || 0;
+      const res = input['Resins, wt.%'] || 0;
+      const density = input['Density, at 15°C, g/cm3'] || 0;
+      const api = input['API'] || 0;
+      const riskDescriptions = {
+        Low: `The model predicts a <b>LOW RISK</b> of asphaltene deposition (${d.prediction.toFixed(2)} wt.%). The crude oil composition shows a favorable balance of resins (${res} wt.%) and aromatics (${aro} wt.%) that provide adequate peptization of asphaltene molecules.`,
+        Medium: `The model predicts a <b>MEDIUM RISK</b> of asphaltene deposition (${d.prediction.toFixed(2)} wt.%). The CII of <b>${d.cii}</b> indicates moderate colloidal instability. Monitor operating conditions carefully.`,
+        High: `The model predicts a <b>HIGH RISK</b> of asphaltene deposition (${d.prediction.toFixed(2)} wt.%). The CII of <b>${d.cii}</b> indicates significant instability. The ratio of resins to asphaltenes is insufficient to maintain stable peptization.`,
+        Critical: `The model predicts a <b>CRITICAL RISK</b> of asphaltene deposition (${d.prediction.toFixed(2)} wt.%). Immediate action required. CII = <b>${d.cii}</b> is in the critical zone. High saturates (${sat} wt.%) combined with elevated asphaltenes creates severe destabilization.`,
+      };
+      let text = riskDescriptions[d.risk] || '';
+      if (d.risk === 'High' || d.risk === 'Critical') {
+        text += ` <br><br>⚠️ <b>Recommended actions:</b> Apply asphaltene dispersant or inhibitor injection. Maintain pipeline temperatures above ${Math.round(50 + d.prediction)}°C. Conduct regular inspection of flow lines and valves.`;
+      }
+      document.getElementById('aiText').innerHTML = text;
+    }
+
+    function calculateRecommendation() {
+      const temp = parseFloat(document.getElementById('f_temp').value) || 0;
+      const time = parseFloat(document.getElementById('f_time').value) || 0;
+      const cii = currentCii;
+
+      let risk = "";
+      let color = "";
+      let regime = "—";
+      let mode = "—";
+      let dosage = 0;
+      let volume = 0;
+      let masse = 0;
+      let consigne = "";
+
+      if (cii < 0.7) {
+        risk = "Faible";
+        color = "#2ed573";
+        consigne = "Aucune action requise. Stockage standard autorisé.";
+        dosage = 0;
+      } else if (cii >= 0.7 && cii <= 0.9) {
+        risk = "Moyen (Zone de transition)";
+        color = "#ffa502";
+        consigne = "Surveillance active des variables T et t. Injection chimique suspendue.";
+        dosage = 0;
+      } else {
+        risk = "Élevé (Instabilité critique)";
+        color = "#ff4757";
+
+        // MODULE DE MODULATION THERMIQUE
+        if (temp <= 30) {
+          regime = "Hivernal";
+          dosage = 25000; // Saturation stérique maximale
+        } else {
+          regime = "Estival";
+          dosage = 17500; // Dosage optimisé par la synergie thermique
+        }
+
+        // MODULE D'OPTIMISATION GÉOMÉTRIQUE (Bac T101)
+        if (time >= 15) {
+          mode = "Batch (Lots ciblés en fond de bac)";
+          volume = 6636.6; // Restriction au volume mort inférieur
+          masse = (volume * 0.8015) * (dosage / 1000000);
+          consigne = "Injecter " + masse.toFixed(3) + " Tonnes de LASNa au fond.";
+        } else {
+          mode = "Injection continue en ligne (Amont)";
+          volume = 48000.0; // Volume opérationnel global
+          masse = (volume * 0.8015) * (dosage / 1000000);
+          consigne = "Injecter en continu selon le débit de transfert.";
+        }
+      }
+
+      // Render values
+      document.getElementById('rec_dosage').textContent = dosage + " ppm";
+      document.getElementById('rec_regime').textContent = "Régime Thermique: " + regime;
+      document.getElementById('rec_risk').textContent = risk;
+      document.getElementById('rec_risk').style.color = color;
+      
+      const riskCard = document.getElementById('rec_risk_card');
+      riskCard.style.borderColor = color;
+      if (cii > 0.9) {
+        riskCard.classList.add('blink-card');
+      } else {
+        riskCard.classList.remove('blink-card');
+      }
+
+      document.getElementById('rec_mode').textContent = "Mode d'injection: " + mode;
+      document.getElementById('rec_consigne').innerHTML = consigne;
+      
+      if (cii > 0.9) {
+        document.getElementById('rec_vol').textContent = `Volume calculé: ${volume.toLocaleString()} m³ | Masse d'inhibiteur: ${masse.toFixed(3)} Tonnes`;
+      } else {
+        document.getElementById('rec_vol').textContent = "Volume calculé: —";
+      }
+
+      // Show treatment box
+      document.getElementById('treatmentBox').style.display = 'block';
+      
+      // Scroll smoothly to the treatmentBox
+      document.getElementById('treatmentBox').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Init with example
+    loadPreset('medium');
+  </script>
 </body>
+
 </html>
